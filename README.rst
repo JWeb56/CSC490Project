@@ -16,14 +16,13 @@ CSC 490 Project
         :target: https://csc-490-best-team-csc490project.readthedocs-hosted.com/en/latest/
         :alt: Documentation Status
 
-
-.. image:: https://pyup.io/repos/github/Matmorcat/csc490project/shield.svg
-     :target: https://pyup.io/repos/github/Matmorcat/csc490project/
+.. image:: https://pyup.io/repos/github/Matmorcat/CSC490Project/shield.svg
+     :target: https://pyup.io/repos/github/Matmorcat/CSC490Project/
      :alt: Updates
 
 
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
+A project for our CSC 490 class. Currently just an empty desert.
 
 
 * Free software: MIT license
