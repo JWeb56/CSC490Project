@@ -10,7 +10,7 @@ pin: True
 
 # set the default branch
 # default: empty, the default branch on GitHub
-branch: []
+#branch: beta
 
 # update schedule
 # default: empty
@@ -26,17 +26,8 @@ search: True
 # default: empty
 # allowed: list
 requirements:
-  - requirements/staging.txt:
-      # update all dependencies and pin them
-      update: all
-      pin: True
-  - requirements/dev.txt:
-      # don't update dependencies, use global 'pin' default
-      update: False
-  - requirements/prod.txt:
-      # update insecure only, pin all
-      update: insecure
-      pin: True
+  - Pipfile
+  - Pipfile.lock
 
 # add a label to pull requests, default is not set
 # requires private repo permissions, even on public repos
@@ -46,8 +37,9 @@ label_prs: update
 # assign users to pull requests, default is not set
 # requires private repo permissions, even on public repos
 # default: empty
-assignees:
-    - 'Matmorcat'
+#assignees:
+# - carl
+# - carlsen
 
 # configure the branch prefix the bot is using
 # default: pyup-
@@ -55,7 +47,7 @@ branch_prefix: pyup/
 
 # set a global prefix for PRs
 # default: empty
-pr_prefix: []
+#pr_prefix: "Bug #12345"
 
 # allow to close stale PRs
 # default: True
