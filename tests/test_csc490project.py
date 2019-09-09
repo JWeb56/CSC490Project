@@ -4,7 +4,7 @@
 import pytest
 import random
 
-import csc490project
+from csc490project import csc490project
 
 
 @pytest.fixture
