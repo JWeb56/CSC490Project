@@ -12,8 +12,8 @@ CSC 490 Project
 .. image:: https://codecov.io/gh/Matmorcat/csc490project/branch/master/graph/badge.svg
         :target: https://codecov.io/gh/Matmorcat/csc490project
 
-.. image:: https://readthedocs.org/projects/csc490project/badge/?version=latest
-        :target: https://readthedocs.com/projects/csc-490-best-team-csc490project/badge/?version=latest
+.. image:: https://readthedocs.com/projects/csc-490-best-team-csc490project/badge/?version=latest
+        :target: https://csc-490-best-team-csc490project.readthedocs-hosted.com/en/latest/
         :alt: Documentation Status
 
 
