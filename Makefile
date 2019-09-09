@@ -9,6 +9,27 @@ try:
 except:
 	from urllib.request import pathname2url
 
+dev:
+    pipenv install --dev
+    pipenv run pip install -e .
+
+dists: requirements sdist bdist wheels
+
+requirements:
+    # For a library, use:
+    #pipenv run pipenv_to_requirements
+    # For an application, use:
+    pipenv run pipenv_to_requirements -f -d requirements_dev.txt
+
+sdist: requirements
+    pipenv run python setup.py sdist
+
+bdist: requirements
+    pipenv run python setup.py bdist
+
+wheels: requirements
+    pipenv run python setup.py bdist_wheel
+
 webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
 endef
 export BROWSER_PYSCRIPT
