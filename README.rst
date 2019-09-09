@@ -13,7 +13,7 @@ CSC 490 Project
         :target: https://codecov.io/gh/Matmorcat/csc490project
 
 .. image:: https://readthedocs.org/projects/csc490project/badge/?version=latest
-        :target: https://csc490project.readthedocs.io/en/latest/?badge=latest
+        :target: https://readthedocs.com/projects/csc-490-best-team-csc490project/badge/?version=latest
         :alt: Documentation Status
 
 
@@ -27,7 +27,7 @@ Python Boilerplate contains all the boilerplate you need to create a Python pack
 
 
 * Free software: MIT license
-* Documentation: https://csc490project.readthedocs.io.
+* Documentation: `ReadTheDocs <https://csc-490-best-team-csc490project.readthedocs-hosted.com/en/latest/>`_
 
 
 Features
