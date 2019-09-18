@@ -7,8 +7,7 @@
 </head>
 <body>
 <main>
-    <p>You are logged in!</p>
-    <p>You are logged out!</p>
+    <p><?php if ($_SESSION['user']) {echo "You are Logged in!";} else echo "You are Logged out!" ?></p>
 </main>
 <header>
     <nav class="nav-header-main">
@@ -26,7 +25,6 @@
                 <input type="password" name="pwd" placeholder="Password">
                 <button type="submit" name="login-submit">Login</button>
             </form>
-            <a href="view/signup.php">Sign Up</a>
             <form action="includes/logout.inc.php" method="post">
                 <button type="submit" name="logout-submit">Logout</button>
             </form>

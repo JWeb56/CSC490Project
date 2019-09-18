@@ -11,7 +11,7 @@ function hashPassword($password) {
 
 function getAuthLevel() {
     $val = 1;
-    return val;
+    return $val;
 }
 
 if (isset($_POST['signup-submit'])) {
@@ -76,7 +76,7 @@ if (isset($_POST['signup-submit'])) {
                 else {
                     mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $b = $username, $h = hashPassword($password), $e = $email, $g = getAuthLevel());
                     mysqli_stmt_execute($query);
-                    header("location: ../view/signup.php?signup=success");
+                    header("location: ../index.php?signup=success");
                     exit();
                 }
             }
