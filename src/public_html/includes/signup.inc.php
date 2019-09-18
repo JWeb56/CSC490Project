@@ -9,6 +9,11 @@ function hashPassword($password) {
     return password_hash($temp, PASSWORD_DEFAULT);
 }
 
+function getAuthLevel() {
+    $val = 1;
+    return val;
+}
+
 if (isset($_POST['signup-submit'])) {
 
     require 'db.inc.php';
@@ -44,11 +49,11 @@ if (isset($_POST['signup-submit'])) {
     }
     else {
         error_log("We got here");
-        $sql = "SELECT id from user WHERE id=?";
+        $sql = "SELECT * from user WHERE username=?";
         $query = mysqli_stmt_init($connection);
         // Error creating prepared statement for query
         if (!mysqli_stmt_prepare($query, $sql)) {
-            header("location: ../view/signup.php?error=sqlerror&" . $username . "&mail=" . $email);
+            header("location: ../view/signup.php?error=sqlerror&username=" . $username . "&mail=" . $email);
             exit();
         }
         //
@@ -62,18 +67,10 @@ if (isset($_POST['signup-submit'])) {
                 exit();
             }
             else {
-                function getAuthLevel() {
-                    $val = 1;
-                    return val;
-                }
-                $uuid = generateNewUuid();
-                $hashedPassword = hashPassword($password);
-                $uName = $username;
-                $e = $email;
-                $sql = "INSERT INTO users (uuid, username, password, email, auth_level) values(?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO user (uuid, username, password, email, auth_level) values(?, ?, ?, ?, ?)";
                 $query = mysqli_stmt_init($connection);
                 if (!mysqli_stmt_prepare($query, $sql)) {
-                    header("location: ../view/signup.php?error=sqlerror&" . $username . "&mail=" . $email);
+                    header("location: ../view/signup.php?error=sqlerror&username" . $username . "&mail=" . $email);
                     exit();
                 }
                 else {
