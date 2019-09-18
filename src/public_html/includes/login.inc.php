@@ -28,6 +28,7 @@ if (isset($_POST['login-submit'])) {
                    exit();
                }
                else {
+                   session_start();
                    $_SESSION['user'] = $row['username'];
                    $_SESSION['userUuid'] = $row['uuid'];
                    header("location: ../index.php?login=success");

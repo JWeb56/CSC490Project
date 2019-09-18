@@ -7,7 +7,13 @@
 </head>
 <body>
 <main>
-    <p><?php if ($_SESSION['user']) {echo "You are Logged in!";} else echo "You are Logged out!" ?></p>
+    <?php if (isset($_GET['error'])) {
+        if ($_GET['error'] = "emptyfields") {
+            echo '<p class="signuperror">You Must Fill In All Fields </p>';
+        } else if (strpos($_GET['error'], "invalid") !== false) {
+            echo '<p class="signuperror">Invalid Field Entry</p>';
+        }
+    } ?>
 </main>
 <header>
     <nav class="nav-header-main">
@@ -20,14 +26,15 @@
             <li><a href="#">Info</a> </li>
         </ul>
         <div>
-            <form action="includes/login.inc.php" method="post">
+            <?php if (isset($_SESSION['user'])) { echo '<form action="includes/logout.inc.php" method="post">
+                <button type="submit" name="logout-submit">Logout</button>
+            </form>';
+            } else { echo '<form action="includes/login.inc.php" method="post">
                 <input type="text" name="login_input" placeholder="Username/Email">
                 <input type="password" name="pwd" placeholder="Password">
                 <button type="submit" name="login-submit">Login</button>
-            </form>
-            <form action="includes/logout.inc.php" method="post">
-                <button type="submit" name="logout-submit">Logout</button>
-            </form>
+            </form>';
+             } ?>
         </div>
     </nav>
 </header>
