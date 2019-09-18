@@ -1,5 +1,16 @@
 
 
+<nav class="nav-header-main">
+    <a href="#">
+        <img src="link/to/logo.jpg" alt="logo">
+    </a>
+    <ul>
+        <li><a href="index.php">Home</a> </li>
+        <li><a href="#">Info</a> </li>
+    </ul>
+
+</nav>
+
 <h1>Create Account</h1>
 <form action="signup.php" method="post">
     <input type="text" name="user_name" placeholder="Username">
