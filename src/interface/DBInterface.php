@@ -7,14 +7,14 @@ class DBInterface {
      */
     public static function connect() {
         $DB_HOST = "localhost";
-        $DB_USER = "root";
-        $DB_PASS = "root";
-        $DB_TABLE = "CSC490Project";
+        $DB_USER = "username";
+        $DB_PASS = "password";
+        $DB_TABLE = "csc490project";
 
         $connection = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS,
             $DB_TABLE) or die("Could not connect to database");
 
-        $query = "select * from account";
+        $query = "SELECT * FROM account";
 
         $result = mysqli_query($connection, $query);
 
