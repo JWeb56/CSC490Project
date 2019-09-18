@@ -1,3 +1,3 @@
-<?php require_once("includes/header.php");
-require_once("includes/startpage.php");
-require_once("includes/footer.php");
+<?php require_once("view/header.php");
+require_once("view/startpage.php");
+require_once("view/footer.php");
