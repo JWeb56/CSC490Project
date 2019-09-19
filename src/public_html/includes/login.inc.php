@@ -11,7 +11,7 @@ if (isset($_POST['login-submit'])) {
         exit();
     }
     else {
-        $sql = "SELECT * from user WHERE username=? OR email=?";
+        $sql = "SELECT * from users WHERE username=? OR email=?";
         $stmt = mysqli_stmt_init($connection);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../index.php?error=sqlerror");
