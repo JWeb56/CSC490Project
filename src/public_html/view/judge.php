@@ -8,39 +8,54 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        .navbar-nav.navbar-center {
-            position: absolute;
-            left: 50%;
-            transform: translatex(-50%);
-        }
         .navbar-nav > li{
             padding-left:70px;
             padding-right:70px;
+        }
+        label{
+            margin-top: 5%;
+            margin-left: 25%;
+        }
+        .myactive{
+            background-color:deepskyblue !important;
+        }
+        a:hover {
+            background-color: black !important;
+            color: white;
+        }
+        .navbar.center .navbar-inner {
+            text-align: center;
+        }
+
+        .navbar.center .navbar-inner .nav {
+            display:inline-block;
+            float: none;
         }
     </style>
     <title>Judge Me App</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="home.php">JMapp</a>
+<nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
+    <a class="navbar-brand h2 text-white" href="home.php">JMapp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav navbar-center">
+    <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarSupportedContent">
+
+        <ul class="nav navbar-nav mx-auto text-center">
 
             <li class="nav-item">
-                <a class="nav-link" href="home.php">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="judge.php">Judge<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="winners.php">Winners</a>
+                <a class="nav-link text-white myactive" href="judge.php">Judge<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="settings.php">Settings</a>
+                <a class="nav-link text-white" href="winners.php">Winners</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="settings.php">Settings</a>
             </li>
         </ul>
     </div>
