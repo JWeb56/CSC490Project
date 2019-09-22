@@ -15,6 +15,7 @@ if (isset($_POST['login-submit'])) {
     }
     else {
         $sql = "SELECT * FROM users WHERE username=? OR email=?";
+
         $stmt = mysqli_stmt_init($connection);
         // Prepare the sql query
         if (!mysqli_stmt_prepare($stmt, $sql)) {
