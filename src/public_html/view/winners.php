@@ -63,7 +63,7 @@
 
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1 class="display-1">The Winners Are: </h1>
     </div>
 </div>

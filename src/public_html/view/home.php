@@ -63,10 +63,10 @@
 
 
   <div class="container">
-		<div class="jumbotron">
+		<div class="jumbotron text-center">
 		  <h1 class="display-1">About the App:</h1>
 		  <article class= "display-4">
-			This App will allow you to judge things @UNCG...
+			This App will allow you to judge things...
 		  </article>
 		  
 		</div>

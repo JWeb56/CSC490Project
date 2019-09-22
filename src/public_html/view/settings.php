@@ -69,7 +69,7 @@
 </nav>
 
 <div class="container center">
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1 class="display-1">User Settings</h1>
     </div>
 </div>

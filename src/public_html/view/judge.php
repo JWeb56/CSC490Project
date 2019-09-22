@@ -62,7 +62,7 @@
 </nav>
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1 class="display-1">Judge Page:</h1>
     </div>
 </div>
