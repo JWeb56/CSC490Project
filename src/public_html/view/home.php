@@ -61,9 +61,8 @@
       </div>
   </nav>
 
-
-  <div class="container">
-		<div class="jumbotron text-center">
+  <div class="container mt-1">
+		<div class="jumbotron text-center" style="background-color:skyblue">
 		  <h1 class="display-1">About the App:</h1>
 		  <article class= "display-4">
 			This App will allow you to judge things...

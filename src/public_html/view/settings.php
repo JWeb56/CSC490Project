@@ -68,8 +68,8 @@
     </div>
 </nav>
 
-<div class="container center">
-    <div class="jumbotron text-center">
+<div class="container center mt-1">
+    <div class="jumbotron text-center" style="background-color:skyblue">
         <h1 class="display-1">User Settings</h1>
     </div>
 </div>

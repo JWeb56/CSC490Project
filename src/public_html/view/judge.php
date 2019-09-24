@@ -60,9 +60,11 @@
         </ul>
     </div>
 </nav>
+<div class="">
 
-<div class="container">
-    <div class="jumbotron text-center">
+</div>
+<div class="container mt-1">
+    <div class="jumbotron text-center" style="background-color:skyblue">
         <h1 class="display-1">Judge Page:</h1>
     </div>
 </div>

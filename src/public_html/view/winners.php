@@ -61,9 +61,8 @@
     </div>
 </nav>
 
-
-<div class="container">
-    <div class="jumbotron text-center">
+<div class="container mt-1">
+    <div class="jumbotron text-center" style="background-color:skyblue">
         <h1 class="display-1">The Winners Are: </h1>
     </div>
 </div>

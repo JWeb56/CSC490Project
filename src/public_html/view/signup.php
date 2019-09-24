@@ -15,10 +15,7 @@
             margin-top: 5%;
             margin-left: 25%;
         }
-        a:hover {
-            background-color: yellow !important;
-            color: white;
-        }
+
         .navbar.center .navbar-inner {
             text-align: center;
         }
@@ -34,8 +31,10 @@
     <title>CSC490 Project Grading Application</title>
     </head>
     <body>
+
     <nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
         <a1 class="navbar-brand h2 text-white">JMapp</a1>
+
        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,7 +47,13 @@
     </nav>
 
     <div class="container">
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center" style="background-color:skyblue">
+            <a class="btn btn-secondary previous round float-xl-right" onclick="history.back(-1)">&#8249;
+                <?php
+                $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+                echo "<a href='$url'></a>";
+                ?>
+            </a>
             <h1 class="display-4">Create Account</h1>
                 <form action="../includes/signup.inc.php" method="post">
                     <div class="row justify-content-center mt-1">
@@ -69,6 +74,5 @@
                 </form>
         </div>
     </div>
-
 
 <?php require_once("footer.php"); ?>

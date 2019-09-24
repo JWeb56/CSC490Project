@@ -15,10 +15,7 @@
             margin-top: 5%;
             margin-left: 25%;
         }
-        a:hover {
-            background-color: yellow !important;
-            color: white;
-        }
+
         .navbar.center .navbar-inner {
             text-align: center;
         }
@@ -36,9 +33,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
     <a1 class="navbar-brand h2 text-white">JMapp</a1>
-    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+     </button>
 -->
     <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarSupportedContent">
 
@@ -47,8 +45,8 @@
     </div>
 </nav>
 <main>
-    <div class="container">
-        <div class="jumbotron text-center">
+    <div class="container mt-1">
+        <div class="jumbotron text-center" style="background-color:skyblue">
             <h1 class="display-4">Sign-in/ Sign-up</h1>
             <?php if (isset($_SESSION['user'])) { echo '<form action="includes/logout.inc.php" method="post">
                 <button type="submit" name="logout-submit">Logout</button>
@@ -61,7 +59,7 @@
                 <input class="row justify-content-center" type="password" name="pwd" placeholder="Password">
             </div>
             <div class="row justify-content-center mt-1">
-                <a type="button" class="btn btn-outline-secondary mr-2" href="view/signup.php">Create Account</a>
+                <a type="btn" class="btn btn-secondary mr-2" href="view/signup.php" name="create">Create Account</a>
                 <button class="btn btn-success" type="submit" name="login-submit">Login</button>
             </div>   
                <!-- <a type="button" class="btn btn-light" href="view/home.php">Home</a>-->
