@@ -28,33 +28,24 @@
     <meta charset="UTF-8">
     <meta name="description" content="CSC490 Project Grading Application">
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <title>CSC490 Project Grading Application</title>
+    <title>Sign Up Page</title>
     </head>
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
         <a1 class="navbar-brand h2 text-white">JMapp</a1>
 
-       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
--->
-        <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarSupportedContent">
-
-            <ul class="nav navbar-nav mx-auto text-center">
-            </ul>
-        </div>
     </nav>
 
-    <div class="container">
+    <div class="container mt-1">
         <div class="jumbotron text-center" style="background-color:skyblue">
-            <a class="btn btn-secondary previous round float-xl-right" onclick="history.back(-1)">&#8249;
+            <a class="btn btn-secondary previous round float-sm-right" onclick="history.back(-1)">&#8249;
                 <?php
                 $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
                 echo "<a href='$url'></a>";
                 ?>
             </a>
-            <h1 class="display-4">Create Account</h1>
+            <h1 class="display-4">Sign-up</h1>
                 <form action="../includes/signup.inc.php" method="post">
                     <div class="row justify-content-center mt-1">
                          <input type="text" name="user_name" placeholder="Username">

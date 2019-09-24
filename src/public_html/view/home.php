@@ -1,3 +1,5 @@
+<?php require_once("header.php"); ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,7 +34,7 @@
     float: none;
 }
 </style>
-    <title>Judge Me App</title>
+    <title>Judge Me App Home Page</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
@@ -79,3 +81,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<?php require_once("footer.php"); ?>

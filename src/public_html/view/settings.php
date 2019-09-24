@@ -1,3 +1,5 @@
+<?php require_once("header.php"); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,7 +39,7 @@
             float: none;
         }
     </style>
-    <title>Judge Me App</title>
+    <title>Judge Me App Settings Page</title>
 </head>
 <body>
 
@@ -74,7 +76,7 @@
     </div>
 </div>
 <div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input h4" id="customSwitch1">
+    <input type="checkbox" class=" submit custom-control-input h4" id="customSwitch1" onclick="gfg_Run()">
     <label class="custom-control-label h4" for="customSwitch1">Dark Theme</label>
 </div>
 
@@ -90,4 +92,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+<script>
+    function changeColor(color, font) {
+        document.body.style.background= color;
+        document.body.style.color= font;
+    }
+    function gfg_Run() {
+
+        if(document.body.style.backgroundColor.valueOf() === 'black') {
+            changeColor('white','black');
+        }
+        else
+            changeColor('black', 'blue');
+    }
+</script>
 </html>
+
+<?php require_once("footer.php"); ?>
