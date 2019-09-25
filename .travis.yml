@@ -1,16 +1,11 @@
-dist: trusty
-
 language: php
 php:
   - 7.2
-  - hhvm # Requires Trusty
-  - nightly
 before_script:
   - sudo apt-get update
   - sudo apt-get install apache2 libapache2-mod-fastcgi
 
-  # Download phpunit manually for HHVM compatibility
-  - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS csc490project;'
 
   # Enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
@@ -25,3 +20,4 @@ before_script:
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
   - sudo service apache2 restart
 
+services: mysql
