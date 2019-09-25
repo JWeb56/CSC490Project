@@ -12,7 +12,7 @@ https://csc-490-project.readthedocs.io/en/latest/?badge=master)
 https://csc-490-project.readthedocs.io/)
 -->
 
-## The Best CSC 490 Team
+## The Runtime Terrors
 
 <!-- Insert Group Description -->
 
