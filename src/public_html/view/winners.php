@@ -6,64 +6,108 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="../view/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../view/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
-        .navbar-nav > li{
-            padding-left:70px;
-            padding-right:70px;
-        }
-        label{
-            margin-top: 5%;
-            margin-left: 25%;
-        }
-        .myactive{
-            background-color:deepskyblue !important;
-        }
-        a:hover {
-            background-color: black !important;
-            color: white;
-        }
-        .navbar.center .navbar-inner {
-            text-align: center;
-        }
-
-        .navbar.center .navbar-inner .nav {
-            display:inline-block;
-            float: none;
+        .jumbotron{
+            margin-top: 8%;
         }
     </style>
     <title>Judge Me App Winners Page</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
-    <a class="navbar-brand h2 text-white" href="home.php">JMapp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-between align-items-center w-100" id="navbarSupportedContent">
-
-        <ul class="nav navbar-nav mx-auto text-center">
-
-            <li class="nav-item">
-                <a class="nav-link text-white" href="home.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="judge.php">Judge</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white myactive" href="winners.php">Winners<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="settings.php">Settings</a>
-            </li>
-        </ul>
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-background-color="grey" data-image="../assets/img/sidebar-1.jpg">
+        <div class="logo">
+            <a href="home.php" class="simple-text logo-normal">
+                JMapp
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="home.php">
+                        <i class="material-icons">home</i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="judge.php">
+                        <i class="material-icons">assignment</i>
+                        <p>Judge Events</p>
+                    </a>
+                </li>
+                <li class="nav-item active ">
+                    <a class="nav-link" href="winners.php">
+                        <i class="material-icons">grade</i>
+                        <p>Event Winners</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="settings.php">
+                        <i class="material-icons">settings</i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</nav>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top">
+            <div class="container-fluid">
+                <p class="h6"> Welcome Username</p>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end">
+                    <form class="navbar-form">
+                        <div class="input-group no-border">
+                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.php">
+                                <i class="material-icons">home</i>
+                                <p class="d-lg-none d-md-block">
+                                    Home
+                                </p>
+                            </a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">person</i>
+                                <p class="d-lg-none d-md-block">
+                                    Profile
+                                </p>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="settings.php">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
 <div class="container mt-1">
-    <div class="jumbotron text-center" style="background-color:skyblue">
+    <div class="jumbotron text-center" style="background-color:grey">
         <h1 class="display-1">The Winners Are: </h1>
     </div>
 </div>
