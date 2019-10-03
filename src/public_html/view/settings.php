@@ -3,6 +3,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <script>
+        window.localStorage.getItem("s_color");
+        window.localStorage.getItem("f_color");
+         function startColor() {
+            document.body.style.background= s_color;
+            document.body.style.color= f_color;
+        }
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +49,7 @@
     </style>
     <title>Judge Me App Settings Page</title>
 </head>
-<body>
+<body onload="startColor()">
 
 <nav class="navbar navbar-expand-lg navbar-light center" style="background-color:darkgrey;">
     <a class="navbar-brand h2 text-white" href="home.php">JMapp</a>
@@ -76,7 +84,7 @@
     </div>
 </div>
 <div class="custom-control custom-switch">
-    <input type="checkbox" class=" submit custom-control-input h4" id="customSwitch1" onclick="gfg_Run()">
+    <input type="checkbox" class=" submit custom-control-input h4" id="customSwitch1" onclick="stupid()">
     <label class="custom-control-label h4" for="customSwitch1">Dark Theme</label>
 </div>
 
@@ -93,18 +101,23 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 <script>
-    function changeColor(color, font) {
+     function changeColor(color, font) {
         document.body.style.background= color;
         document.body.style.color= font;
     }
-    function gfg_Run() {
-
+     let s_color, f_color;
+     function stupid() {
         if(document.body.style.backgroundColor.valueOf() === 'black') {
             changeColor('white','black');
-        }
-        else
+            window.localStorage.setItem(s_color,'white');
+            window.localStorage.setItem(f_color,'black');
+        } else {
             changeColor('black', 'blue');
+            window.localStorage.setItem(s_color,'black');
+            window.localStorage.setItem(f_color,'blue');
+        }
     }
+
 </script>
 </html>
 

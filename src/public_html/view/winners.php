@@ -1,5 +1,4 @@
 <?php require_once("header.php"); ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -68,7 +67,6 @@
         <h1 class="display-1">The Winners Are: </h1>
     </div>
 </div>
-
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
