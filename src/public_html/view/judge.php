@@ -27,7 +27,8 @@
     <div class="sidebar" data-color="purple" data-background-color="grey" data-image="../assets/img/sidebar-1.jpg">
         <div class="logo">
             <a href="home.php" class="simple-text logo-normal">
-                JMapp
+                Easy
+                Adjucate
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -73,7 +74,7 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <form class="navbar-form">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <input type="text" value="" class="form-control" placeholder="Search Events, Users, ect ...">
                             <button type="submit" class="btn btn-white btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
