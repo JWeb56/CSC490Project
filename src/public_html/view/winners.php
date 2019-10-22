@@ -19,15 +19,25 @@
             margin-top: 15%;
         }
     </style>
+    <script>
+
+        window.localStorage.getItem("f_color");
+        function startColor() {
+            const standard_color=window.localStorage.getItem("s_color")
+            const font_color=window.localStorage.getItem("f_color")
+            document.body.style.background= standard_color;
+            document.body.style.color= font_color;
+        }
+    </script>
     <title>Judge Me App Winners Page</title>
 </head>
-<body>
+<body onload="startColor()">
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-background-color="grey" data-image="../assets/img/sidebar-1.jpg">
         <div class="logo">
             <a href="home.php" class="simple-text logo-normal">
                 Easy
-                Adjucate
+                Adjudicate
             </a>
         </div>
         <div class="sidebar-wrapper">
