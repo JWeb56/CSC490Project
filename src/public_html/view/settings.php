@@ -16,7 +16,7 @@
 <body onload="startColor()">
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-background-color="grey" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="grey">
         <div class="logo">
             <a href="home.php" class="simple-text logo-normal">
                 Easy
@@ -95,18 +95,15 @@
 
 
 <div class="container">
+    <div id="checkbox-container">
     <div class="jumbotron text-center" style="background-color:grey">
         <h1>Settings </h1>
+    </div>
     </div>
 </div>
 <div class="custom-control custom-switch" style="margin-left:17%">
     <input type="checkbox" class=" submit custom-control-input h4" id="customSwitch1" onclick="stupid()">
     <label class="custom-control-label h4" for="customSwitch1">Dark Theme</label>
-</div>
-
-<div class="custom-control custom-switch" style="margin-left:17%">
-    <input type="checkbox" class="custom-control-input h4" id="customSwitch2">
-    <label class="custom-control-label h4" for="customSwitch2">Invert Screen</label>
 </div>
 </body>
 </html>

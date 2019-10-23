@@ -9,7 +9,7 @@
   </head>
   <body onload="startColor()">
   <div class="wrapper">
-      <div class="sidebar" data-color="purple" data-background-color="grey" data-image="../assets/img/sidebar-1.jpg">
+      <div class="sidebar" data-color="purple" data-background-color="grey">
           <div class="logo">
               <a href="home.php" class="simple-text logo-normal">
                   Easy

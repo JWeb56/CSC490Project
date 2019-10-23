@@ -4,8 +4,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="../view/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="../view/css/demo.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <style>
     .jumbotron{
@@ -21,4 +19,5 @@
         document.body.style.background= standard_color;
         document.body.style.color= font_color;
     }
+
 </script>

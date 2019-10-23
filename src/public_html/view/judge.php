@@ -10,7 +10,7 @@
 </head>
 <body onload="startColor()">
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-background-color="grey" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="grey">
         <div class="logo">
             <a href="home.php" class="simple-text logo-normal">
                 Easy
@@ -89,7 +89,13 @@
 
 <div class="container">
     <div class="jumbotron text-center" style="background-color:grey">
-        <h1>Judge Page:</h1>
+        <h1>Events to Judge:</h1>
+        <ul style="list-style-type:disc;">
+            <li>Event Name</li>
+            <li>Event Name</li>
+        </ul>
+        <button type="button" class="btn btn-warning">Create Event</button>
+        <button type="button" class="btn btn-success">Created Events</button>
     </div>
 </div>
 </body>
