@@ -9,9 +9,7 @@ include('includes/navbar.php');
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <h1 class="h3 mb-0 text-gray-800">Admin Dashboard</h1>
   </div>
 
   <!-- Content Row -->
@@ -26,7 +24,7 @@ include('includes/navbar.php');
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Admin</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-               <h4>Total Admin: *</h4>
+               <h4>Total Admin: </h4>
 
               </div>
             </div>
@@ -44,11 +42,10 @@ include('includes/navbar.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Current Number of Sessions</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
@@ -75,7 +72,7 @@ include('includes/navbar.php');
               </div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+
             </div>
           </div>
         </div>
@@ -88,7 +85,7 @@ include('includes/navbar.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Default Number of Grading Fields:</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
             </div>
             <div class="col-auto">
