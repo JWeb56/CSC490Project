@@ -28,7 +28,7 @@ if (isset($_POST['login-submit'])) {
             mysqli_stmt_bind_param($stmt, "ss", $login, $login);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
-            // There is at leasy one result from the query
+            // There is at least one result from the query
             if ($row = mysqli_fetch_assoc($result)) {
                 // Entered password does not match the one stored in db
                if (!password_verify($password, $row['password'])) {

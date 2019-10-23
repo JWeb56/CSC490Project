@@ -2,7 +2,7 @@
 
 // Generate random UUID with prefix "490"
 function generateNewUuid() {
-    return uniqid("490");
+    return uniqid("CSC490");
 }
 
 // Hash password with the default algorithm
@@ -31,22 +31,27 @@ if (isset($_POST['signup-submit'])) {
     // Empty input provided
     if(empty($username) || empty($email) || empty($password) || empty($pass_repeat)) {
         header("location: ../view/signup.php?error=emptyfields&username=" . $username . "&mail=" . $email);
+        exit();
     }
     // Invalid username and email
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         header("location: ../view/signup.php?error=invaliduser&mail");
+        exit();
     }
     // Invalid email
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("location: ../view/signup.php?error=invalidmail&username=" . $username);
+        exit();
     }
     // Invalid username
     else if(!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         header("location: ../view/signup.php?error=invaliduname&mail=" . $email);
+        exit();
     }
     // Passwords don't match
     else if($password !== $pass_repeat) {
         header("location: ../view/signup.php?error=passcheck&uname=" . $username . "&mail=" . $email);
+        exit();
     }
     // Proper values entered
     else {
@@ -55,6 +60,7 @@ if (isset($_POST['signup-submit'])) {
         // Error creating prepared statement for query
         if (!mysqli_stmt_prepare($query, $sql)) {
             header("location: ../view/signup.php?error=sqlerror&username=" . $username . "&mail=" . $email);
+            exit();
         }
         // No issues with query syntax
         else {
@@ -66,6 +72,7 @@ if (isset($_POST['signup-submit'])) {
             // There is already an entry with the provided username
             if ($resultCheck > 0) {
                 header("location: ../view/signup.php?error=usertaken&mail=" . $email);
+                exit();
             }
             // New user - try to create entry in the database
             else {
@@ -74,12 +81,14 @@ if (isset($_POST['signup-submit'])) {
                 // Error with preparing the statement
                 if (!mysqli_stmt_prepare($query, $sql)) {
                     header("location: ../view/signup.php?error=sqlerror&username" . $username . "&mail=" . $email);
+                    exit();
                 }
                 // Everything is good to go - insert into db and redirect to home page
                 else {
                     mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $b = $username, $h = hashPassword($password), $e = $email, $g = getAuthLevel());
                     mysqli_stmt_execute($query);
                     header("location: ../index.php?signup=success");
+                    exit();
                 }
             }
         }
@@ -91,4 +100,5 @@ if (isset($_POST['signup-submit'])) {
 
 else {
     header("location: ../view/signup.php");
+    exit();
 }
