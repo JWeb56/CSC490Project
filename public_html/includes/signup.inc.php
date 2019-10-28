@@ -1,6 +1,6 @@
 <?php
 
-// Generate random UUID with prefix "490"
+// Generate random UUID with prefix "CSC490"
 function generateNewUuid() {
     return uniqid("CSC490");
 }
@@ -11,8 +11,11 @@ function hashPassword($password) {
     return password_hash($temp, PASSWORD_DEFAULT);
 }
 
-// Get the authorization level - just return 1 for now
+// Get the authorization level, determined by the referring page (i.e. 1 if an admin signup or 2 if regular user signup)
 function getAuthLevel() {
+    if (isset($_SESSION['admin'])) {
+        return 1;
+    }
     return 2;
 }
 
@@ -20,6 +23,18 @@ function getAuthLevel() {
 if (isset($_POST['signup-submit'])) {
 
     require 'db.inc.php';
+
+    // Create the 'users' table if it doesn't already exist
+    mysqli_query($connection, "
+            CREATE TABLE IF NOT EXISTS users (
+                id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                uuid VARCHAR(32), 
+                username VARCHAR(32), 
+                password VARCHAR(128), 
+                email VARCHAR(32), 
+                auth_level INT(11)
+            );
+        ");
 
     // Get the values entered by the user
     $username = $_POST['user_name'];

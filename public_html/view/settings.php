@@ -1,4 +1,8 @@
-<?php require_once("header.php"); ?>
+<?php require_once("header.php");
+if (!isset($_SESSION['user'])) {
+    header("location: ../index.php");
+    exit();
+}?>
 
 <!doctype html>
 <html lang="en">

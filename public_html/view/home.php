@@ -1,4 +1,5 @@
 <?php require_once("header.php");
+// Prevent against back clicks after logout
 if (!isset($_SESSION['user'])) {
     header("location: ../index.php");
     exit();
