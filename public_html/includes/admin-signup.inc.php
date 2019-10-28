@@ -12,7 +12,7 @@ function hashPassword($password) {
 }
 
 function getAuthLevel() {
-    return 2;
+    return 1;
 }
 
 // User clicked the "create account" button
@@ -97,7 +97,7 @@ if (isset($_POST['signup-submit'])) {
                 else {
                     mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $b = $username, $h = hashPassword($password), $e = $email, $g = getAuthLevel());
                     mysqli_stmt_execute($query);
-                    header("location: ../index.php?signup=success");
+                    header("location: ../admin?admincreate=success");
                     exit();
                 }
             }

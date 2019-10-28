@@ -33,7 +33,7 @@
 
 
 <li class="nav-item">
-  <a class="nav-link" href="register.php">
+  <a class="nav-link" href="admin.php">
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Admin Profile</span></a>
 </li>
@@ -100,7 +100,6 @@
                ADMIN LOGOUT
                   
                 </span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
 
             </li>

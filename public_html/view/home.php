@@ -54,7 +54,7 @@ if (!isset($_SESSION['user'])) {
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg navbar-absolute fixed-top">
               <div class="container-fluid">
-                  <p class="h6"> Welcome <?php echo $_SESSION['user']; error_log("Session user: " . $_SESSION['user']);?></p>
+                  <p class="h6"> Welcome <?php echo $_SESSION['user'];?></p>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="sr-only">Toggle navigation</span>
                       <span class="navbar-toggler-icon icon-bar"></span>
