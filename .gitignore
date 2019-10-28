@@ -174,3 +174,5 @@ data/DoctrineORMModule/cache/
 demos/
 extras/documentation
 
+#DB Config
+public_html/includes/db.inc.php
