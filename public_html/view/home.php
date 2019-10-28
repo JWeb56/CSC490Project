@@ -1,4 +1,8 @@
-<?php require_once("header.php"); ?>
+<?php require_once("header.php");
+if (!isset($_SESSION['user'])) {
+    header("location: ../index.php");
+    exit();
+}?>
 
 <!doctype html>
 <html lang="en">
@@ -49,7 +53,7 @@
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg navbar-absolute fixed-top">
               <div class="container-fluid">
-                  <p class="h6"> Welcome Username</p>
+                  <p class="h6"> Welcome <?php echo $_SESSION['user']; error_log("Session user: " . $_SESSION['user']);?></p>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="sr-only">Toggle navigation</span>
                       <span class="navbar-toggler-icon icon-bar"></span>
@@ -78,7 +82,9 @@
                                   <a class="dropdown-item" href="#">Profile</a>
                                   <a class="dropdown-item" href="settings.php">Settings</a>
                                   <div class="dropdown-divider"></div>
-                                  <a class="dropdown-item" href="#">Log out</a>
+                                  <form action="../includes/logout.inc.php" method="post">
+                                      <button class="dropdown-item" type="submit" name="logout-submit">Logout</button>
+                                  </form>
                               </div>
                           </li>
                       </ul>

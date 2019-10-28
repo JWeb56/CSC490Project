@@ -40,7 +40,13 @@ if (isset($_POST['login-submit'])) {
                    session_start();
                    $_SESSION['user'] = $row['username'];
                    $_SESSION['userUuid'] = $row['uuid'];
-                   header("location: ../index.php?login=success");
+                   // If this is an admin, redirect accordingly
+                   if ($row['auth_level'] == 1) {
+                       header("location: ../admin?login=success");
+                       exit();
+                   }
+                   // Normal user, direct to home page
+                   header("location: ../view/home.php?login=success");
                    exit();
                }
             }

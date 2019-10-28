@@ -13,8 +13,7 @@ function hashPassword($password) {
 
 // Get the authorization level - just return 1 for now
 function getAuthLevel() {
-    $val = 1;
-    return $val;
+    return 2;
 }
 
 // User clicked the "create account" button
