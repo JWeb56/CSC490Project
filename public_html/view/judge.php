@@ -87,7 +87,9 @@ if (!isset($_SESSION['user'])) {
                                     <a class="dropdown-item" href="#">Profile</a>
                                     <a class="dropdown-item" href="settings.php">Settings</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" onclick="window.location.href = 'http://localhost:3000/';">Log out</a>
+                                    <form action="../includes/logout.inc.php" method="post">
+                                        <button class="dropdown-item" type="submit" name="logout-submit">Logout</button>
+                                    </form>
                                 </div>
                             </li>
                         </ul>
