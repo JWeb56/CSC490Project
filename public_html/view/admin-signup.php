@@ -22,7 +22,7 @@
 
     <div class="container mt-1">
         <div class="jumbotron text-center" style="background-color:grey">
-            <a class="btn btn-secondary previous round float-sm-right" onclick="history.back(-1)">&#8249;
+            <a class="btn btn-secondary previous round float-sm-left"  style="font-size: larger; margin-left: 30%;" onclick="history.back(-1)">&#8249;
                 <?php
                 $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
                 echo "<a href='$url'></a>";

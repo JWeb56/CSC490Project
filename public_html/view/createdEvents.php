@@ -1,20 +1,12 @@
-<?php require_once("header.php");
-if (!isset($_SESSION['user'])) {
-    header("location: ../index.php");
-    exit();
-}?>
+<?php require_once("header.php"); ?>
+
     <!doctype html>
     <html lang="en">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <style>
-            .jumbotron{
-                margin-top: 15%;
-            }
-        </style>
-        <title>Judge Me App Winners Page</title>
+        <title>Judge Me App Judging Page</title>
     </head>
     <body onload="startColor()">
     <div class="wrapper">
@@ -33,13 +25,13 @@ if (!isset($_SESSION['user'])) {
                             <p id="p1">Home</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item active ">
                         <a class="nav-link" href="judge.php">
                             <i id="icon2" class="material-icons">assignment</i>
                             <p id="p2">Judge Events</p>
                         </a>
                     </li>
-                    <li class="nav-item active ">
+                    <li class="nav-item ">
                         <a class="nav-link" href="winners.php">
                             <i id="icon3" class="material-icons">grade</i>
                             <p id="p3">Event Winners</p>
@@ -101,12 +93,14 @@ if (!isset($_SESSION['user'])) {
 
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
-                    <h1>The Winner: </h1>
+                    <h1>Events to Judge:</h1>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Hackathon</a>
+                        <a href="#" class="list-group-item">CSC-340-Project</a>
+                    </div>
                 </div>
             </div>
     </body>
     </html>
-
-<?php require_once("footer.php"); ?>
 
 <?php require_once("footer.php"); ?>

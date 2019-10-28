@@ -192,17 +192,71 @@
     function changeColor(color, font) {
         document.body.style.background= color;
         document.body.style.color= font;
+
     }
-    let s_color, f_color;
+    let s_color, f_color, nav, sidebar, icon, icon2, icon3, icon4, p, p2, p3, p4, jumbo;
+
     function stupid() {
+        nav = document.getElementById('navbar');
+        sidebar = document.getElementById('sidebar');
+        icon = document.getElementById('icon1');
+        icon2 = document.getElementById('icon2');
+        icon3 = document.getElementById('icon3');
+        icon4 = document.getElementById('icon4');
+        p = document.getElementById('p1');
+        p2 = document.getElementById('p2');
+        p3 = document.getElementById('p3');
+        p4 = document.getElementById('p4');
+        jumbo = document.getElementById('jumbotron');
         if(document.body.style.backgroundColor.valueOf() === 'black') {
-            changeColor('white','black');
-            window.localStorage.setItem('s_color','white');
-            window.localStorage.setItem('f_color','black');
+            changeColor('linear-gradient(to bottom, grey, black)','white');
+            nav.style.backgroundColor = "white";
+            nav.style.color = "grey";
+            sidebar.style.backgroundColor = "white";
+            sidebar.style.boxShadow= '10px 10px 5px black';
+            icon.style.color = "black";
+            icon2.style.color = "black";
+            icon3.style.color = "black";
+            icon4.style.color = "black";
+            p.style.color = 'black';
+            p2.style.color = 'black';
+            p3.style.color = 'black';
+            p4.style.color = 'black';
+            jumbo.style.boxShadow = '10px 10px 5px black';
+            window.localStorage.setItem('s_color','linear-gradient(to bottom, grey, black)');
+            window.localStorage.setItem('f_color','white');
+            window.localStorage.setItem('p_color', 'black');
+            window.localStorage.setItem('i_color', 'black');
+            window.localStorage.setItem('side_color', 'white');
+            window.localStorage.setItem('side_bs', '10px 10px 5px black');
+            window.localStorage.setItem('jumbo_bs', '10px 10px 5px black');
+            window.localStorage.setItem('nav_color', 'grey');
+            window.localStorage.setItem('nav_back', 'white');
         } else {
-            changeColor('black', 'blue');
+            changeColor('black', 'darkorange');
+            nav.style.backgroundColor = "grey";
+            nav.style.color = "white";
+            sidebar.style.backgroundColor = "grey";
+            sidebar.style.boxShadow= '10px 10px 5px orange';
+            icon.style.color = "white";
+            icon2.style.color = "white";
+            icon3.style.color = "white";
+            icon4.style.color = "white";
+            p.style.color = 'white';
+            p2.style.color = 'white';
+            p3.style.color = 'white';
+            p4.style.color = 'white';
+            jumbo.style.boxShadow= '10px 10px 5px orange';
             window.localStorage.setItem('s_color','black');
-            window.localStorage.setItem('f_color','blue');
+            window.localStorage.setItem('f_color','darkorange');
+            window.localStorage.setItem('p_color', 'white');
+            window.localStorage.setItem('i_color', 'white');
+            window.localStorage.setItem('side_color', 'grey');
+            window.localStorage.setItem('side_bs', '10px 10px 5px orange');
+            window.localStorage.setItem('jumbo_bs', '10px 10px 5px orange');
+            window.localStorage.setItem('nav_color', 'white');
+            window.localStorage.setItem('nav_back', 'grey');
+
         }
     }
     $(function(){
