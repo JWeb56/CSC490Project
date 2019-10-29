@@ -5,8 +5,6 @@ if (!isset($_SESSION['user'])) {
 }?>
 
     <script>
-        jumbo = document.getElementById('jumbotron');
-
         const name = window.localStorage.getItem("e_name")
         const num = window.localStorage.getItem("num_c")
         const categories = window.localStorage.getItem("c_names")
@@ -16,9 +14,15 @@ if (!isset($_SESSION['user'])) {
 
         let btn;
         function adder() {
-            btn = document.createElement("BUTTON");
+            btn = document.createElement("A");
             btn.innerHTML = name;
+            btn.className += 'list-group-item';
+            btn.href = "#";
             document.getElementById('dynamic-div').appendChild(btn);
+
+            if(name !== null) {
+                document.getElementById('dynamic-div').style.display = 'block';
+            }
         }
     </script>
     <!doctype html>
@@ -117,9 +121,7 @@ if (!isset($_SESSION['user'])) {
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                     <h1>Events to Judge:</h1>
-                    <div id="dynamic-div" class="list-group">
-                        <a href="#" class="list-group-item">Senior Capstone Presentations</a>
-                        <a href="#" class="list-group-item">Talent Show</a>
+                    <div id="dynamic-div" class="list-group" style="display: none">
                     </div>
                     <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
                     <a type="button" class="btn btn-success" href="createdEvents.php">Created Events</a>

@@ -12,6 +12,27 @@ if (!isset($_SESSION['user'])) {
         <meta charset="utf-8">
         <title>Judge Me App Home Page</title>
     </head>
+    <script>
+        const name = window.localStorage.getItem("e_name")
+        const num = window.localStorage.getItem("num_c")
+        const categories = window.localStorage.getItem("c_names")
+        const judges = window.localStorage.getItem("j_names")
+        const date = window.localStorage.getItem("d")
+        const time = window.localStorage.getItem("t")
+
+        let btn;
+        function adder() {
+            btn = document.createElement("A");
+            btn.innerHTML = name;
+            btn.className += 'list-group-item';
+            btn.href = "#";
+            document.getElementById('dynamic-div').appendChild(btn);
+
+            if(name !== null) {
+                document.getElementById('dynamic-div').style.display = 'block';
+            }
+        }
+    </script>
     <body onload="startColor()">
     <div id="wrap" class="wrapper">
         <div id="sidebar" class="sidebar" data-color="grey" data-background-color="grey">
@@ -95,9 +116,7 @@ if (!isset($_SESSION['user'])) {
             <div class="container display-block">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
                     <h1>Events to Judge:</h1>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Senior Capstone Presentations</a>
-                        <a href="#" class="list-group-item">Talent Show</a>
+                    <div id="dynamic-div" class="list-group" style="display: none">
                     </div>
                     <div>
                         <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>

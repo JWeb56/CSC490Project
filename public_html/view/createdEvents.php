@@ -8,6 +8,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Judge Me App Judging Page</title>
     </head>
+    <script>
+        const name = window.localStorage.getItem("e_name")
+        const num = window.localStorage.getItem("num_c")
+        const categories = window.localStorage.getItem("c_names")
+        const judges = window.localStorage.getItem("j_names")
+        const date = window.localStorage.getItem("d")
+        const time = window.localStorage.getItem("t")
+
+        let btn;
+        function adder() {
+            btn = document.createElement("A");
+            btn.innerHTML = name;
+            btn.className += 'list-group-item';
+            btn.href = "#";
+            document.getElementById('dynamic-div').appendChild(btn);
+
+            if(name !== null) {
+                document.getElementById('dynamic-div').style.display = 'block';
+            }
+        }
+    </script>
     <body onload="startColor()">
     <div class="wrapper">
         <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
@@ -96,9 +117,7 @@
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                     <h1>Events to Judge:</h1>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Hackathon</a>
-                        <a href="#" class="list-group-item">CSC-340-Project</a>
+                    <div id="dynamic-div" class="list-group" style="display: none">
                     </div>
                 </div>
             </div>
