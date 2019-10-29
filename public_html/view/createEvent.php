@@ -99,8 +99,12 @@
                 <h1>Create Event:</h1>
                 <form>
                     <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="eventName" type="text" class="form-control mt-1" name="categories" placeholder="The name of the event ..."></input>
+                    </div>
+                    <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
-                        <input id="#cols" type="number" class="form-control mt-1" name="colNum" min="0" placeholder="number of judging categories...">
+                        <input id="numCols" type="number" class="form-control mt-1" name="colNum" min="0" placeholder="Number of judging categories...">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
@@ -108,7 +112,7 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <textarea id="categoryNames" type="text" class="form-control mt-1" name="categories" placeholder="Judge's for the event (ex: JohnD@uncg.edu, JaneD@uncg.edu, ... ect) ..."></textarea>
+                        <textarea id="judgeNames" type="text" class="form-control mt-1" name="categories" placeholder="Judge's for the event (ex: JohnD@uncg.edu, JaneD@uncg.edu, ... ect) ..."></textarea>
                     </div>
                     <div class="text-left mt-1">
                         <label for="example-date-input" style="color: black">Date</label>
@@ -118,7 +122,7 @@
                         <label for="example-time-input" style="color: black">Time:</label>
                         <input class="form-control" type="time" value="::" id="example-time-input">
                     </div>
-                    <a type="button" class="btn btn-success">Submit</a>
+                    <a type="button" class="btn btn-success" onclick="data()">Submit</a>
                 </form>
 
             </div>
@@ -126,4 +130,26 @@
 </body>
 </html>
 
+<script>
+    let eventName, numCols, categoryNames, judgesNames, date, time;
+
+    function data(){
+        eventName = document.getElementById('eventName');
+        numCols = document.getElementById('numCols');
+        categoryNames = document.getElementById('categoryNames');
+        judgesNames = document.getElementById('judgeNames');
+        date = document.getElementById('example-date-input');
+        time = document.getElementById('example-time-input');
+
+        window.localStorage.setItem('num_c', numCols);
+        window.localStorage.setItem('c_names', categoryNames);
+        window.localStorage.setItem('j_names', judgesNames);
+        window.localStorage.setItem('d', date);
+        window.localStorage.setItem('t', time);
+        window.localStorage.setItem('e_name', eventName);
+
+        document.location.href = 'judge.php';
+    }
+
+</script>
 <?php require_once("footer.php"); ?>
