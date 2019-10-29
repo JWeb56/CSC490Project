@@ -4,6 +4,23 @@ if (!isset($_SESSION['user'])) {
     exit();
 }?>
 
+    <script>
+        jumbo = document.getElementById('jumbotron');
+
+        const name = window.localStorage.getItem("e_name")
+        const num = window.localStorage.getItem("num_c")
+        const categories = window.localStorage.getItem("c_names")
+        const judges = window.localStorage.getItem("j_names")
+        const date = window.localStorage.getItem("d")
+        const time = window.localStorage.getItem("t")
+
+        let btn;
+        function adder() {
+            btn = document.createElement("BUTTON");
+            btn.innerHTML = name;
+            document.getElementById('dynamic-div').appendChild(btn);
+        }
+    </script>
     <!doctype html>
     <html lang="en">
     <head>
@@ -100,7 +117,7 @@ if (!isset($_SESSION['user'])) {
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                     <h1>Events to Judge:</h1>
-                    <div class="list-group">
+                    <div id="dynamic-div" class="list-group">
                         <a href="#" class="list-group-item">Senior Capstone Presentations</a>
                         <a href="#" class="list-group-item">Talent Show</a>
                     </div>

@@ -221,6 +221,8 @@
         p3.style.color = paragraph_color;
         p4.style.color = paragraph_color;
         jumbo.style.boxShadow = jumbo_bs;
+
+        adder();
     }
 
 </script>

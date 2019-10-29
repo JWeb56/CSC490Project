@@ -134,12 +134,12 @@
     let eventName, numCols, categoryNames, judgesNames, date, time;
 
     function data(){
-        eventName = document.getElementById('eventName');
-        numCols = document.getElementById('numCols');
-        categoryNames = document.getElementById('categoryNames');
-        judgesNames = document.getElementById('judgeNames');
-        date = document.getElementById('example-date-input');
-        time = document.getElementById('example-time-input');
+        eventName = document.getElementById('eventName').value;
+        numCols = document.getElementById('numCols').value;
+        categoryNames = document.getElementById('categoryNames').value;
+        judgesNames = document.getElementById('judgeNames').value;
+        date = document.getElementById('example-date-input').value;
+        time = document.getElementById('example-time-input').value;
 
         window.localStorage.setItem('num_c', numCols);
         window.localStorage.setItem('c_names', categoryNames);
