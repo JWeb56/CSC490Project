@@ -25,7 +25,7 @@ if (!isset($_SESSION['user'])) {
             btn = document.createElement("A");
             btn.innerHTML = name;
             btn.className += 'list-group-item';
-            btn.href = "#";
+            btn.href = "event.php";
             document.getElementById('dynamic-div').appendChild(btn);
 
             if(name !== null) {
