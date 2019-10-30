@@ -1,32 +1,5 @@
-<?php require_once("header.php");
-if (!isset($_SESSION['user'])) {
-    header("location: ../index.php");
-    exit();
-}?>
+<?php require_once("header.php"); ?>
 
-    <script>
-        const name = window.localStorage.getItem("e_name")
-        const num = window.localStorage.getItem("num_c")
-        const categories = window.localStorage.getItem("c_names")
-        const judges = window.localStorage.getItem("j_names")
-        const date = window.localStorage.getItem("d")
-        const time = window.localStorage.getItem("t")
-        const userCode = window.localStorage.getItem("u_code");
-        const code = window.localStorage.getItem("code");
-
-        let btn;
-        function adder() {
-            btn = document.createElement("A");
-            btn.innerHTML = name;
-            btn.className += 'list-group-item';
-            btn.href = "event.php";
-            document.getElementById('dynamic-div2').appendChild(btn);
-
-            if(userCode === code) {
-                document.getElementById('dynamic-div2').style.display = 'block';
-            }
-        }
-    </script>
     <!doctype html>
     <html lang="en">
     <head>
@@ -79,6 +52,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="container-fluid">
                     <p class="h6"> Welcome
                         <?php
+                        session_start();
                         echo $_SESSION['user']
                         ?>
                     </p>
@@ -122,15 +96,71 @@ if (!isset($_SESSION['user'])) {
 
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
-                    <h1>Events to Judge:</h1>
-                    <div id="dynamic-div2" class="list-group" style="display: none">
-                    </div>
-                    <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
-                    <a type="button" class="btn btn-success" href="createdEvents.php">Created Events</a>
-                    <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
+                    <h1>Create Event:</h1>
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="eventName" type="text" class="form-control mt-1" name="categories" placeholder="The name of the event ..."></input>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+                            <input id="numCols" type="number" class="form-control mt-1" name="colNum" min="0" placeholder="Number of judging categories...">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+                            <textarea id="categoryNames" type="text" class="form-control mt-1" name="categories" style="flex-wrap: wrap;" placeholder="Category Names (ex: Presentation, Time, ... ect) ..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <textarea id="judgeNames"  type="text" class="form-control mt-1" name="categories" placeholder="Judge's for the event (ex: JohnD@uncg.edu, JaneD@uncg.edu, ... ect) ..."></textarea>
+                        </div>
+                        <div class="text-left mt-1">
+                            <label for="example-date-input" style="color: black">Date</label>
+                            <input class="form-control" type="date" value="--" id="example-date-input">
+                        </div>
+                        <div class="text-left mt-1">
+                            <label for="example-time-input" style="color: black">Time:</label>
+                            <input class="form-control" type="time" id="example-time-input">
+                        </div>
+                        <div>
+                            <h1>Code: <script>document.write(window.localStorage.getItem("code"))</script></h1>
+                        </div>
+                        <a type="button" class="btn btn-success" onclick="data()">Submit</a>
+                    </form>
+
                 </div>
             </div>
     </body>
     </html>
 
+    <script>
+        let eventName, numCols, categoryNames, judgesNames, date, time, result, characters, charactersLength, z;
+
+        function data(){
+            eventName = document.getElementById('eventName').value;
+            numCols = document.getElementById('numCols').value;
+            categoryNames = document.getElementById('categoryNames').value;
+            judgesNames = document.getElementById('judgeNames').value;
+            date = document.getElementById('example-date-input').value;
+            time = document.getElementById('example-time-input').value;
+
+            window.localStorage.setItem('num_c', numCols);
+            window.localStorage.setItem('c_names', categoryNames);
+            window.localStorage.setItem('j_names', judgesNames);
+            window.localStorage.setItem('d', date);
+            window.localStorage.setItem('t', time);
+            window.localStorage.setItem('e_name', eventName);
+
+            document.location.href = 'judge.php';
+        }
+        function adder() {
+            document.getElementById('eventName').value = window.localStorage.getItem("e_name");
+            document.getElementById('numCols').value = window.localStorage.getItem("num_c");
+            document.getElementById('example-date-input').value = window.localStorage.getItem("d");
+            document.getElementById('example-time-input').value = window.localStorage.getItem("t");
+            document.getElementById('categoryNames').value = window.localStorage.getItem("c_names");
+            document.getElementById('judgeNames').value = window.localStorage.getItem("j_names");
+
+        }
+    </script>
 <?php require_once("footer.php"); ?>

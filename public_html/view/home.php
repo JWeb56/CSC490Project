@@ -19,6 +19,8 @@ if (!isset($_SESSION['user'])) {
         const judges = window.localStorage.getItem("j_names")
         const date = window.localStorage.getItem("d")
         const time = window.localStorage.getItem("t")
+        const userCode = window.localStorage.getItem("u_code");
+        const code = window.localStorage.getItem("code");
 
         let btn;
         function adder() {
@@ -26,10 +28,10 @@ if (!isset($_SESSION['user'])) {
             btn.innerHTML = name;
             btn.className += 'list-group-item';
             btn.href = "event.php";
-            document.getElementById('dynamic-div').appendChild(btn);
+            document.getElementById('dynamic-div2').appendChild(btn);
 
-            if(name !== null) {
-                document.getElementById('dynamic-div').style.display = 'block';
+            if(userCode === code) {
+                document.getElementById('dynamic-div2').style.display = 'block';
             }
         }
     </script>
@@ -116,7 +118,7 @@ if (!isset($_SESSION['user'])) {
             <div class="container display-block">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
                     <h1>Events to Judge:</h1>
-                    <div id="dynamic-div" class="list-group" style="display: none">
+                    <div id="dynamic-div2" class="list-group" style="display: none">
                     </div>
                     <div>
                         <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>

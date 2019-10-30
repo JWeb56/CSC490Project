@@ -21,7 +21,7 @@
             btn = document.createElement("A");
             btn.innerHTML = name;
             btn.className += 'list-group-item';
-            btn.href = "event.php";
+            btn.href = "editEvent.php";
             document.getElementById('dynamic-div').appendChild(btn);
 
             if(name !== null) {

@@ -131,7 +131,7 @@
 </html>
 
 <script>
-    let eventName, numCols, categoryNames, judgesNames, date, time;
+    let eventName, numCols, categoryNames, judgesNames, date, time, result, characters, charactersLength, z;
 
     function data(){
         eventName = document.getElementById('eventName').value;
@@ -147,8 +147,17 @@
         window.localStorage.setItem('d', date);
         window.localStorage.setItem('t', time);
         window.localStorage.setItem('e_name', eventName);
-
-        document.location.href = 'judge.php';
+        makeCode(7);
+        document.location.href = 'displayCode.php';
+    }
+    function makeCode(length) {
+        result           = '';
+        characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        charactersLength = characters.length;
+        for ( z = 0; z < length; z++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        window.localStorage.setItem('code', result);
     }
 
 </script>

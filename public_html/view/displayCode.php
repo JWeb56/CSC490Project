@@ -1,13 +1,35 @@
-<?php require_once("header.php"); ?>
-
+<?php require_once("header.php");
+if (!isset($_SESSION['user'])) {
+    header("location: ../index.php");
+    exit();
+}?>
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Judge Me App Judging Page</title>
+    <style>
+        .jumbotron{
+            margin-top: 15%;
+        }
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+        }
+    </style>
+    <title>Judge Me App Winners Page</title>
 </head>
+<script>
+    const person = window.localStorage.getItem("per");
+    const total = window.localStorage.getItem("tot");
+    const event = window.localStorage.getItem("e_name");
+    const code = window.localStorage.getItem("code");
+</script>
 <body onload="startColor()">
 <div class="wrapper">
     <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
@@ -25,13 +47,13 @@
                         <p id="p1">Home</p>
                     </a>
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item ">
                     <a class="nav-link" href="judge.php">
                         <i id="icon2" class="material-icons">assignment</i>
                         <p id="p2">Judge Events</p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item active ">
                     <a class="nav-link" href="evaluation.php">
                         <i id="icon3" class="material-icons">grade</i>
                         <p id="p3">Evaluations</p>
@@ -52,7 +74,6 @@
             <div class="container-fluid">
                 <p class="h6"> Welcome
                     <?php
-                    session_start();
                     echo $_SESSION['user']
                     ?>
                 </p>
@@ -96,26 +117,14 @@
 
         <div class="container">
             <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
-                <h1>Join Event:</h1>
-                <form>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
-                        <input id="code" type="text" class="form-control mt-1" name="code" placeholder="Enter Event Code Here">
-                    </div>
-                    <a id="uCode" type="submit" class="btn btn-success" href="judge.php" onclick="decoder()">Submit</a>
+                <h1><script>document.write(event)</script></h1>
+                <hr>
+                <div class="list-group mt-5">
+                    <h1>Code: <script>document.write(code)</script></h1>
+                </div>
             </div>
-            </form>
-
         </div>
-    </div>
 </body>
-<script>
-    let userCode;
-    function decoder() {
-        userCode = document.getElementById("code").value;
-        window.localStorage.setItem('u_code', userCode);
-    }
-</script>
 </html>
 
 <?php require_once("footer.php"); ?>
