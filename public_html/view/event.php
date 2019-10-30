@@ -16,7 +16,8 @@
     const date = window.localStorage.getItem("d")
     const time = window.localStorage.getItem("t")
 
-    let btn, temp, i, form, paragraph, divider, divider2, input, input2, input3, input4, input5, input6, label, label2, label3, label4, label5, label6, submit;
+    let btn, temp, i, form, personArr,  paragraph, divider, divider2, input, input2, input3, input4, input5, input6, label, label2, label3, label4, label5, label6, submit;
+    let person, total, selected, j;
     function adder() {
 
         splitter();
@@ -28,9 +29,16 @@
         form.id = 'sheet';
         document.getElementById('jumbotron').appendChild(form);
 
+        personArr = document.createElement("INPUT");
+        personArr.type = 'text';
+        personArr.placeholder = 'Name / Group name...';
+        personArr.id = 'person';
+        document.getElementById('sheet').appendChild(personArr);
+
         for(i = 0; i < temp.length; i++){
             paragraph = document.createElement("P");
             paragraph.innerHTML = temp[i] + ":";
+            paragraph.style.fontSize = 'xx-large';
             document.getElementById('sheet').appendChild(paragraph);
 
             divider = document.createElement("DIV");
@@ -40,67 +48,84 @@
             label = document.createElement("LABEL");
             label.for = 'zero';
             label.innerHTML = "0";
+            label.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label);
 
             input = document.createElement("INPUT");
             input.type = 'radio';
             input.value = 0;
             input.id = 'zero';
+            input.style.marginRight = '3%';
+            input.className += 'check';
             document.getElementById(i).appendChild(input);
 
             label2 = document.createElement("LABEL");
             label2.for = 'one';
             label2.innerHTML = "1";
+            label2.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label2);
 
             input2 = document.createElement("INPUT");
             input2.type = 'radio';
             input2.value = 1;
             input2.id = 'one';
+            input2.style.marginRight = '3%';
+            input2.className += 'check';
             document.getElementById(i).appendChild(input2);
 
             label3 = document.createElement("LABEL");
             label3.for = 'two';
             label3.innerHTML = "2";
+            label3.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label3);
 
             input3 = document.createElement("INPUT");
             input3.type = 'radio';
             input3.value = 2;
             input3.id = 'two';
+            input3.style.marginRight = '3%';
+            input3.className += 'check';
             document.getElementById(i).appendChild(input3);
 
             label4 = document.createElement("LABEL");
             label4.for = 'three';
             label4.innerHTML = "3";
+            label4.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label4);
 
             input4 = document.createElement("INPUT");
             input4.type = 'radio';
             input4.value = 3;
             input4.id = 'three';
+            input4.style.marginRight = '3%';
+            input4.className += 'check';
             document.getElementById(i).appendChild(input4);
 
             label5 = document.createElement("LABEL");
             label5.for = 'four';
             label5.innerHTML = "4";
+            label5.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label5);
 
             input5 = document.createElement("INPUT");
             input5.type = 'radio';
             input5.value = 4;
             input5.id = 'four';
+            input5.style.marginRight = '3%';
+            input5.className += 'check';
             document.getElementById(i).appendChild(input5);
 
             label6 = document.createElement("LABEL");
             label6.for = 'five';
             label6.innerHTML = "5";
+            label6.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label6);
 
             input6 = document.createElement("INPUT");
             input6.type = 'radio';
             input6.value = 5;
             input6.id = 'five';
+            input6.className += 'check';
             document.getElementById(i).appendChild(input6);
         }
         divider2 = document.createElement("DIV");
@@ -111,8 +136,40 @@
         submit.type = 'submit';
         submit.className = 'btn btn-success';
         submit.innerHTML = "Submit";
+        submit.id = 'submit';
+        submit.addEventListener("click", stats);
         document.getElementById('end').appendChild(submit);
 
+        function stats(){
+            person = document.getElementById('person').value;
+            handleClick();
+            function handleClick(){
+                total = 10;
+                if(input.checked === true){
+                    total += input.value;
+                }
+                if(input2.checked === true){
+                    total += input2.value;
+                }
+                if(input3.checked === true){
+                    total += input3.value;
+                }
+                if(input4.checked === true){
+                    total += input4.value;
+                }
+                if(input5.checked === true){
+                    total += input5.value;
+                }
+                if(input6.checked === true){
+                    total += input6.value;
+                }
+                total = total / 2;
+            }
+            window.localStorage.setItem('per', person);
+            window.localStorage.setItem('tot', total);
+
+            document.location.href = 'evaluation.php';
+        }
     }
 </script>
 <body onload="startColor()">
@@ -139,9 +196,9 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="winners.php">
+                    <a class="nav-link" href="evaluation.php">
                         <i id="icon3" class="material-icons">grade</i>
-                        <p id="p3">Event Winners</p>
+                        <p id="p3">Evaluations</p>
                     </a>
                 </li>
                 <li class="nav-item ">

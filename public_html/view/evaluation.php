@@ -16,6 +16,22 @@ if (!isset($_SESSION['user'])) {
         </style>
         <title>Judge Me App Winners Page</title>
     </head>
+<script>
+const person = window.localStorage.getItem("per")
+const total = window.localStorage.getItem("tot")
+
+function adder() {
+    btn = document.createElement("A");
+    btn.innerHTML = person;
+    btn.className += 'list-group-item';
+    btn.href = "score.php";
+    document.getElementById('dynamic-div').appendChild(btn);
+
+    if(person !== null) {
+        document.getElementById('dynamic-div').style.display = 'block';
+    }
+}
+</script>
     <body onload="startColor()">
     <div class="wrapper">
         <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
@@ -40,9 +56,9 @@ if (!isset($_SESSION['user'])) {
                         </a>
                     </li>
                     <li class="nav-item active ">
-                        <a class="nav-link" href="winners.php">
+                        <a class="nav-link" href="evaluation.php">
                             <i id="icon3" class="material-icons">grade</i>
-                            <p id="p3">Event Winners</p>
+                            <p id="p3">Evaluations</p>
                         </a>
                     </li>
                     <li class="nav-item ">
@@ -103,12 +119,12 @@ if (!isset($_SESSION['user'])) {
 
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
-                    <h1>The Winner: </h1>
+                    <h1>Evaluations: </h1>
+                    <div id="dynamic-div" class="list-group" style="display: none">
+                    </div>
                 </div>
             </div>
     </body>
     </html>
-
-<?php require_once("footer.php"); ?>
 
 <?php require_once("footer.php"); ?>

@@ -57,9 +57,9 @@ if (!isset($_SESSION['user'])) {
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="winners.php">
+                        <a class="nav-link" href="evaluation.php">
                             <i id="icon3" class="material-icons">grade</i>
-                            <p id="p3">Event Winners</p>
+                            <p id="p3">Evaluations</p>
                         </a>
                     </li>
                     <li class="nav-item ">

@@ -1,41 +1,36 @@
 <?php require_once("header.php");
-// Prevent against back clicks after logout
 if (!isset($_SESSION['user'])) {
     header("location: ../index.php");
     exit();
 }?>
-
     <!doctype html>
     <html lang="en">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <title>Judge Me App Home Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            .jumbotron{
+                margin-top: 15%;
+            }
+            hr {
+                display: block;
+                height: 1px;
+                border: 0;
+                border-top: 1px solid #ccc;
+                margin: 1em 0;
+                padding: 0;
+            }
+        </style>
+        <title>Judge Me App Winners Page</title>
     </head>
     <script>
-        const name = window.localStorage.getItem("e_name")
-        const num = window.localStorage.getItem("num_c")
-        const categories = window.localStorage.getItem("c_names")
-        const judges = window.localStorage.getItem("j_names")
-        const date = window.localStorage.getItem("d")
-        const time = window.localStorage.getItem("t")
-
-        let btn;
-        function adder() {
-            btn = document.createElement("A");
-            btn.innerHTML = name;
-            btn.className += 'list-group-item';
-            btn.href = "event.php";
-            document.getElementById('dynamic-div').appendChild(btn);
-
-            if(name !== null) {
-                document.getElementById('dynamic-div').style.display = 'block';
-            }
-        }
+        const person = window.localStorage.getItem("per");
+        const total = window.localStorage.getItem("tot");
     </script>
     <body onload="startColor()">
-    <div id="wrap" class="wrapper">
-        <div id="sidebar" class="sidebar" data-color="grey" data-background-color="grey">
+    <div class="wrapper">
+        <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
             <div class="logo">
                 <a href="home.php" class="simple-text logo-normal">
                     Easy
@@ -44,7 +39,7 @@ if (!isset($_SESSION['user'])) {
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active  ">
+                    <li class="nav-item ">
                         <a class="nav-link" href="home.php">
                             <i id="icon1" class="material-icons">home</i>
                             <p id="p1">Home</p>
@@ -56,7 +51,7 @@ if (!isset($_SESSION['user'])) {
                             <p id="p2">Judge Events</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item active ">
                         <a class="nav-link" href="evaluation.php">
                             <i id="icon3" class="material-icons">grade</i>
                             <p id="p3">Evaluations</p>
@@ -75,7 +70,11 @@ if (!isset($_SESSION['user'])) {
             <!-- Navbar -->
             <nav id="navbar" class="navbar navbar-expand-lg navbar-absolute fixed-top" style="width: 98%;margin-left: 2%;">
                 <div class="container-fluid">
-                    <p class="h6"> Welcome <?php echo $_SESSION['user'];?></p>
+                    <p class="h6"> Welcome
+                        <?php
+                        echo $_SESSION['user']
+                        ?>
+                    </p>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="navbar-toggler-icon icon-bar"></span>
@@ -113,19 +112,16 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 </div>
             </nav>
-            <div class="container display-block">
-                <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
-                    <h1>Events to Judge:</h1>
-                    <div id="dynamic-div" class="list-group" style="display: none">
-                    </div>
-                    <div>
-                        <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
-                        <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
+
+            <div class="container">
+                <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
+                    <h1><script>document.write(person)</script></h1>
+                    <hr>
+                    <div class="list-group mt-5">
+                        <h1>Score: <script>document.write(total)</script></h1>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     </body>
     </html>
 
