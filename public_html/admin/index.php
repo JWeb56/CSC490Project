@@ -1,6 +1,19 @@
 <?php
 include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('includes/navbar.php');
+require '../includes/db.inc.php';
+$sql = "SELECT * FROM users WHERE auth_level = 1";
+$stmt = mysqli_stmt_init($connection);
+mysqli_stmt_prepare($stmt, $sql);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$results = array();
+$count = 0;
+while ($row = mysqli_fetch_assoc($result)) {
+    array_push($results, $row);
+    $count++;
+}
+?>
 ?>
 
 
@@ -24,7 +37,7 @@ include('includes/navbar.php');
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Admin</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-               <h4>Total Admin: </h4>
+               <h4>Total Admin: <?php echo $count; ?></h4>
 
               </div>
             </div>

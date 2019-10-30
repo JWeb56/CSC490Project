@@ -97,7 +97,7 @@ if (isset($_POST['signup-submit'])) {
                 else {
                     mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $b = $username, $h = hashPassword($password), $e = $email, $g = getAuthLevel());
                     mysqli_stmt_execute($query);
-                    header("location: ../admin?admincreate=success");
+                    header("location: ../admin/index.php?admincreate=success");
                     exit();
                 }
             }

@@ -42,7 +42,7 @@ if (isset($_POST['login-submit'])) {
                    $_SESSION['userUuid'] = $row['uuid'];
                    // If this is an admin, redirect accordingly
                    if ($row['auth_level'] == 1) {
-                       header("location: ../admin?login=success");
+                       header("location: ../admin/index.php?login=success");
                        exit();
                    }
                    // Normal user, direct to home page

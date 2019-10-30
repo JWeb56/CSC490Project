@@ -30,7 +30,7 @@ if (!isset($_SESSION['user'])) {
             btn.href = "event.php";
             document.getElementById('dynamic-div2').appendChild(btn);
 
-            if(userCode === code) {
+            if(userCode === code && name !== null) {
                 document.getElementById('dynamic-div2').style.display = 'block';
             }
         }
