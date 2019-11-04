@@ -6,7 +6,6 @@ if (!isset($_SESSION['user'])) {
 
     <script>
         const name = window.localStorage.getItem("e_name")
-        const num = window.localStorage.getItem("num_c")
         const categories = window.localStorage.getItem("c_names")
         const judges = window.localStorage.getItem("j_names")
         const date = window.localStorage.getItem("d")

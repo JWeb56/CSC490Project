@@ -11,6 +11,8 @@
     .jumbotron {
         margin-top: 15%;
         box-shadow: 10px 10px 5px black;
+        width: 60%;
+        margin-left: 20%;
     }
     html {
         height: 100%;
@@ -226,3 +228,4 @@
     }
 
 </script>
+

@@ -14,7 +14,6 @@ if (!isset($_SESSION['user'])) {
     </head>
     <script>
         const name = window.localStorage.getItem("e_name")
-        const num = window.localStorage.getItem("num_c")
         const categories = window.localStorage.getItem("c_names")
         const judges = window.localStorage.getItem("j_names")
         const date = window.localStorage.getItem("d")
@@ -75,7 +74,7 @@ if (!isset($_SESSION['user'])) {
         </div>
         <div class="main-panel">
             <!-- Navbar -->
-            <nav id="navbar" class="navbar navbar-expand-lg navbar-absolute fixed-top" style="width: 98%;margin-left: 2%;">
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-absolute fixed-top" style="width: 98%; margin-left: 2%">
                 <div class="container-fluid">
                     <p class="h6"> Welcome <?php echo $_SESSION['user'];?></p>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

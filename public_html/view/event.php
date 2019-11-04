@@ -10,7 +10,6 @@
 </head>
 <script>
     const name = window.localStorage.getItem("e_name")
-    const num = window.localStorage.getItem("num_c")
     const categories = window.localStorage.getItem("c_names")
     const judges = window.localStorage.getItem("j_names")
     const date = window.localStorage.getItem("d")
@@ -35,7 +34,7 @@
         personArr.id = 'person';
         document.getElementById('sheet').appendChild(personArr);
 
-        c = num;
+        c = temp.length;
 
         for(i = 0; i < temp.length; i++){
             paragraph = document.createElement("P");
@@ -159,13 +158,13 @@
             handleClick();
             function handleClick(){
                 total = 0;
-               for(z = num; z <= c - 1; z++){
+               for(z = temp.length; z <= c - 1; z++){
                    selected = document.getElementById(z);
                    if(selected.checked === true){
                        total += parseInt(selected.value);
                    }
                }
-                f_total= total / (c - (num * 2));
+                f_total= total / (c - (temp.length * 2));
                f_total = Math.ceil(f_total * 100);
             }
 

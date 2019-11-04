@@ -103,10 +103,6 @@
                         <input id="eventName" type="text" class="form-control mt-1" name="categories" placeholder="The name of the event ..."></input>
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
-                        <input id="numCols" type="number" class="form-control mt-1" name="colNum" min="0" placeholder="Number of judging categories...">
-                    </div>
-                    <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
                         <textarea id="categoryNames" type="text" class="form-control mt-1" name="categories" style="flex-wrap: wrap;" placeholder="Category Names (ex: Presentation, Time, ... ect) ..."></textarea>
                     </div>
@@ -135,13 +131,11 @@
 
     function data(){
         eventName = document.getElementById('eventName').value;
-        numCols = document.getElementById('numCols').value;
         categoryNames = document.getElementById('categoryNames').value;
         judgesNames = document.getElementById('judgeNames').value;
         date = document.getElementById('example-date-input').value;
         time = document.getElementById('example-time-input').value;
 
-        window.localStorage.setItem('num_c', numCols);
         window.localStorage.setItem('c_names', categoryNames);
         window.localStorage.setItem('j_names', judgesNames);
         window.localStorage.setItem('d', date);
