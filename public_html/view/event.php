@@ -16,8 +16,8 @@
     const date = window.localStorage.getItem("d")
     const time = window.localStorage.getItem("t")
 
-    let btn, temp, i, form, personArr,  paragraph, divider, divider2, input, input2, input3, input4, input5, input6, label, label2, label3, label4, label5, label6, submit;
-    let person, total, selected, j;
+    let btn, temp, i, c, z, form, personArr,  paragraph, divider, divider2, input, input2, input3, input4, input5, input6, label, label2, label3, label4, label5, label6, submit;
+    let person, total, selected, j, f_total;
     function adder() {
 
         splitter();
@@ -35,6 +35,8 @@
         personArr.id = 'person';
         document.getElementById('sheet').appendChild(personArr);
 
+        c = num;
+
         for(i = 0; i < temp.length; i++){
             paragraph = document.createElement("P");
             paragraph.innerHTML = temp[i] + ":";
@@ -46,7 +48,7 @@
             document.getElementById('sheet').appendChild(divider);
 
             label = document.createElement("LABEL");
-            label.for = 'zero';
+            label.for = c;
             label.innerHTML = "0";
             label.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label);
@@ -54,13 +56,15 @@
             input = document.createElement("INPUT");
             input.type = 'radio';
             input.value = 0;
-            input.id = 'zero';
+            input.id = c;
             input.style.marginRight = '3%';
             input.className += 'check';
             document.getElementById(i).appendChild(input);
 
+            c++;
+
             label2 = document.createElement("LABEL");
-            label2.for = 'one';
+            label2.for = c;
             label2.innerHTML = "1";
             label2.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label2);
@@ -68,13 +72,15 @@
             input2 = document.createElement("INPUT");
             input2.type = 'radio';
             input2.value = 1;
-            input2.id = 'one';
+            input2.id = c;
             input2.style.marginRight = '3%';
             input2.className += 'check';
             document.getElementById(i).appendChild(input2);
 
+            c++;
+
             label3 = document.createElement("LABEL");
-            label3.for = 'two';
+            label3.for = c;
             label3.innerHTML = "2";
             label3.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label3);
@@ -82,13 +88,15 @@
             input3 = document.createElement("INPUT");
             input3.type = 'radio';
             input3.value = 2;
-            input3.id = 'two';
+            input3.id = c;
             input3.style.marginRight = '3%';
             input3.className += 'check';
             document.getElementById(i).appendChild(input3);
 
+            c++;
+
             label4 = document.createElement("LABEL");
-            label4.for = 'three';
+            label4.for = c;
             label4.innerHTML = "3";
             label4.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label4);
@@ -96,13 +104,15 @@
             input4 = document.createElement("INPUT");
             input4.type = 'radio';
             input4.value = 3;
-            input4.id = 'three';
+            input4.id = c;
             input4.style.marginRight = '3%';
             input4.className += 'check';
             document.getElementById(i).appendChild(input4);
 
+            c++;
+
             label5 = document.createElement("LABEL");
-            label5.for = 'four';
+            label5.for = c;
             label5.innerHTML = "4";
             label5.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label5);
@@ -110,13 +120,15 @@
             input5 = document.createElement("INPUT");
             input5.type = 'radio';
             input5.value = 4;
-            input5.id = 'four';
+            input5.id = c;
             input5.style.marginRight = '3%';
             input5.className += 'check';
             document.getElementById(i).appendChild(input5);
 
+            c++;
+
             label6 = document.createElement("LABEL");
-            label6.for = 'five';
+            label6.for = c;
             label6.innerHTML = "5";
             label6.style.fontSize = 'x-large';
             document.getElementById(i).appendChild(label6);
@@ -124,9 +136,11 @@
             input6 = document.createElement("INPUT");
             input6.type = 'radio';
             input6.value = 5;
-            input6.id = 'five';
+            input6.id = c;
             input6.className += 'check';
             document.getElementById(i).appendChild(input6);
+
+            c++;
         }
         divider2 = document.createElement("DIV");
         divider2.id = 'end';
@@ -144,29 +158,19 @@
             person = document.getElementById('person').value;
             handleClick();
             function handleClick(){
-                total = 10;
-                if(input.checked === true){
-                    total += input.value;
-                }
-                if(input2.checked === true){
-                    total += input2.value;
-                }
-                if(input3.checked === true){
-                    total += input3.value;
-                }
-                if(input4.checked === true){
-                    total += input4.value;
-                }
-                if(input5.checked === true){
-                    total += input5.value;
-                }
-                if(input6.checked === true){
-                    total += input6.value;
-                }
-                total = total / 2;
+                total = 0;
+               for(z = num; z <= c - 1; z++){
+                   selected = document.getElementById(z);
+                   if(selected.checked === true){
+                       total += parseInt(selected.value);
+                   }
+               }
+                f_total= total / (c - (num * 2));
+               f_total = Math.ceil(f_total * 100);
             }
+
             window.localStorage.setItem('per', person);
-            window.localStorage.setItem('tot', total);
+            window.localStorage.setItem('tot', f_total);
 
             document.location.href = 'evaluation.php';
         }
