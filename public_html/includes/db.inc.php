@@ -2,8 +2,8 @@
 
 
         $DB_HOST = "localhost";
-        $DB_USER = "username";
-        $DB_PASS = "password";
+        $DB_USER = "root";
+        $DB_PASS = "root";
         $DB_NAME = "csc490project";
 
         $connection = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS) or die("Could not connect to MySQL");

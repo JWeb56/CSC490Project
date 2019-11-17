@@ -14,7 +14,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $count++;
 }
 ?>
-?>
 
 
 <!-- Begin Page Content -->
