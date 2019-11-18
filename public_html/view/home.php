@@ -18,7 +18,7 @@ if (!isset($_SESSION['user'])) {
         const judges = window.localStorage.getItem("j_names")
         const date = window.localStorage.getItem("d")
         const time = window.localStorage.getItem("t")
-        const userCode = window.localStorage.getItem("u_code");
+        const userCode = window.localStorage.getItem("u_code").trim();
         const code = window.localStorage.getItem("code");
 
         let btn;
