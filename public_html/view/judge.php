@@ -13,7 +13,10 @@ if (!isset($_SESSION['user'])) {
         const userCode = window.localStorage.getItem("u_code").trim();
         const code = window.localStorage.getItem("code");
 
-        let btn;
+        let btn, bool, bool2, g;
+        temp2 = judges.trim().split(',');
+        sName = "<?php echo $_SESSION['user'];?>";
+        C2 = window.localStorage.getItem("creator");
         function adder() {
             btn = document.createElement("A");
             btn.innerHTML = name;
@@ -23,6 +26,28 @@ if (!isset($_SESSION['user'])) {
 
             if(userCode === code && name !== null) {
                 document.getElementById('dynamic-div2').style.display = 'block';
+            }
+            bool = false;
+            bool2 = false;
+            for(g = 0; g < temp2.length; g++){
+                if (temp2[g].toLowerCase() === sName.toLowerCase()){
+                    bool = true;
+                }
+                if(sName.toLowerCase() === C2.toLowerCase()){
+                    bool2 = true;
+                }
+            }
+            if(bool === true && bool2 === false) {
+                document.getElementById('dynamic-div2').style.display = 'block';
+            }
+            if(bool === false && bool2 === false) {
+                document.getElementById('dynamic-div2').style.display = 'none';
+            }
+            if(bool === true && bool2 === true){
+                document.getElementById('dynamic-div2').style.display = 'none';
+            }
+            if(bool === false && bool2 === true){
+                document.getElementById('dynamic-div2').style.display = 'none';
             }
         }
     </script>
