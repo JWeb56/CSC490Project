@@ -11,13 +11,7 @@
     <body onload="startColor()">
     <div class="wrapper">
         <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
-            <div class="logo">
-                <a href="home.php" class="simple-text logo-normal">
-                    Easy
-                    Adjudicate
-                </a>
-            </div>
-            <div class="sidebar-wrapper">
+            <div class="sidebar-wrapper" style="margin-top: 25%">
                 <ul class="nav">
                     <li class="nav-item ">
                         <a class="nav-link" href="home.php">
@@ -48,14 +42,14 @@
         </div>
         <div class="main-panel">
             <!-- Navbar -->
-            <nav id="navbar" class="navbar navbar-expand-lg navbar-absolute fixed-top" style="width: 98%;margin-left: 2%;">
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-absolute fixed-top">
                 <div class="container-fluid">
-                    <p class="h6"> Welcome
-                        <?php
-                        session_start();
-                        echo $_SESSION['user']
-                        ?>
-                    </p>
+                    <div class="logo" style="margin-right: 7%; margin-left: 2%;">
+                        <a href="home.php" class="simple-text logo-normal" style="color: black">
+                            Easy
+                            Adjudicate
+                        </a>
+                    </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="navbar-toggler-icon icon-bar"></span>
@@ -77,7 +71,8 @@
                                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
                                     <p class="d-lg-none d-md-block">
-                                        Profile
+                                    <p class="h6" style="text-transform: capitalize; display: inline-block"><?php session_start(); echo $_SESSION['user']?>
+                                    </p>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
@@ -100,7 +95,7 @@
                     <form>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="eventName" type="text" class="form-control mt-1" name="categories" placeholder="The name of the event ..."></input>
+                            <input id="eventName" type="text" class="form-control mt-1" name="categories" placeholder="The name of the event ...">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>

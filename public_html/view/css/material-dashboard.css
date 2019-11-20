@@ -161,7 +161,7 @@ sup {
 a {
   color: gray;
   text-decoration: none;
-  background-color: transparent;
+  background-color: white;
   -webkit-text-decoration-skip: objects;
 }
 
@@ -564,7 +564,7 @@ sup {
 a {
   color: grey;
   text-decoration: none;
-  background-color: transparent;
+  background-color: white;
   -webkit-text-decoration-skip: objects;
 }
 
@@ -13112,7 +13112,6 @@ fieldset[disabled] .form-group .form-control {
 }
 
 .navbar.navbar-absolute {
-  position: absolute;
   width: 100%;
   padding-top: 10px;
   z-index: 1029;
@@ -14447,7 +14446,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar {
-  height: 50%;
+  height: 100%;
   position: fixed;
   overflow: auto;
   top: 0;
@@ -14455,8 +14454,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   left: 0;
   z-index: 2;
   width: 295px;
-  background: #fff;
-  box-shadow: 10px 10px 5px black;
+  background: transparent;
 }
 
 .sidebar .caret {
@@ -14634,6 +14632,8 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   text-transform: capitalize;
   font-size: 13px;
   padding: 5%;
+  background-color: white;
+  box-shadow: 10px 10px 5px black;
 }
 
 .sidebar .sidebar-background {
@@ -14674,7 +14674,6 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   right: 15px;
   height: 1px;
   width: calc(100% - 30px);
-  background-color: rgba(1, 1, 1, 1);
 }
 
 .sidebar .logo p {

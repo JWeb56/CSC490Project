@@ -18,15 +18,9 @@ if (!isset($_SESSION['user'])) {
         <title>Judge Me App Settings Page</title>
     </head>
     <body onload="startColor()">
-    <div class="wrapper">
-        <div id="sidebar" class="sidebar" data-color="purple" data-background-color="blue">
-            <div class="logo">
-                <a href="home.php" class="simple-text logo-normal">
-                    Easy
-                    Adjudicate
-                </a>
-            </div>
-            <div class="sidebar-wrapper">
+        <div id="wrap" class="wrapper">
+            <div id="sidebar" class="sidebar" data-color="purple" data-background-color="blue">
+            <div class="sidebar-wrapper" style="margin-top: 25%">
                 <ul class="nav">
                     <li class="nav-item ">
                         <a class="nav-link" href="home.php">
@@ -57,13 +51,13 @@ if (!isset($_SESSION['user'])) {
         </div>
         <div class="main-panel">
             <!-- Navbar -->
-            <nav id="navbar"  class="navbar navbar-expand-lg navbar-absolute fixed-top" style="width: 98%;margin-left: 2%;">
-                <div class="container-fluid">
-                    <p class="h6"> Welcome
-                        <?php
-                        echo $_SESSION['user']
-                        ?>
-                    </p>
+            <nav id="navbar"  class="navbar navbar-expand-lg navbar-absolute fixed-top">
+                <div class="logo" style="margin-right: 7%; margin-left: 2%;">
+                    <a href="home.php" class="simple-text logo-normal" style="color: black">
+                        Easy
+                        Adjudicate
+                    </a>
+                </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="navbar-toggler-icon icon-bar"></span>
@@ -85,7 +79,7 @@ if (!isset($_SESSION['user'])) {
                                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
                                     <p class="d-lg-none d-md-block">
-                                        Profile
+                                    <p class="h6" style="text-transform: capitalize; display: inline-block"><?php echo $_SESSION['user'];?></p>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
@@ -100,9 +94,6 @@ if (!isset($_SESSION['user'])) {
                         </ul>
                     </div>
                 </div>
-            </nav>
-
-
             <div class="container">
                 <div id="checkbox-container">
                     <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
