@@ -97,12 +97,12 @@
         <div class="container">
             <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                 <h1>Join Event:</h1>
-                <form>
+                <form onsubmit="decoder()">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
                         <input id="code" type="text" class="form-control mt-1" name="code" placeholder="Enter Event Code Here">
                     </div>
-                    <a id="uCode" type="submit" class="btn btn-success" href="judge.php" onclick="decoder()">Submit</a>
+                    <a id="uCode" type="submit" class="btn btn-success">Submit</a>
             </div>
             </form>
 
@@ -110,10 +110,41 @@
     </div>
 </body>
 <script>
-    let userCode;
+    let userCode, g, temp2, bool, bool2, C2, sName, keyCode;
+    const judges = window.localStorage.getItem("j_names");
+    temp2 = judges.trim().split(',');
+    sName = "<?php echo $_SESSION['user'];?>";
+    C2 = window.localStorage.getItem("creator");
+    bool = false;
+    bool2 = false;
     function decoder() {
-        userCode = document.getElementById("code").value;
-        window.localStorage.setItem('u_code', userCode);
+        bool = false;
+        bool2 = false;
+        for(g = 0; g < temp2.length; g++){
+            if (temp2[g].toLowerCase() === sName.toLowerCase()){
+                bool = true;
+            }
+            if(sName.toLowerCase() === C2.toLowerCase()){
+                bool2 = true;
+            }
+        }
+        if(bool === true && bool2 === false) {
+            userCode = document.getElementById("code").value;
+            window.localStorage.setItem('u_code', userCode);
+            window.location.replace("judge.php");
+        }
+        if(bool === false && bool2 === false) {
+            alert("You do not have access to this event.");
+            window.location.href = "joinEvent.php";
+        }
+        if(bool === true && bool2 === true){
+            alert("You can not judge an event that you created.");
+            window.location.href = "joinEvent.php";
+        }
+        if(bool === false && bool2 === true){
+            alert("You do not have access to this event.");
+            window.location.href = "joinEvent.php";
+        }
     }
 </script>
 </html>

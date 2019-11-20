@@ -128,7 +128,7 @@
 
 <script>
     let eventName, numCols, categoryNames, judgesNames, date, time, result, characters, charactersLength, z;
-
+    const creator = "<?php echo $_SESSION['user'];?>";
     function data(){
         eventName = document.getElementById('eventName').value;
         categoryNames = document.getElementById('categoryNames').value;
@@ -141,6 +141,7 @@
         window.localStorage.setItem('d', date);
         window.localStorage.setItem('t', time);
         window.localStorage.setItem('e_name', eventName);
+        window.localStorage.setItem('creator', creator);
         makeCode(7);
         document.location.href = 'displayCode.php';
     }
