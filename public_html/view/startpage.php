@@ -209,7 +209,7 @@
             </form>';
             } else { echo '<form action="includes/login.inc.php" method="post">
             <div class="row justify-content-center">
-                <input type="text" name="login_input" placeholder="Username/Email">
+                <input type="text" name="login_input" placeholder="Username">
             </div>
             <div class="row justify-content-center mt-1">
                 <input class="row justify-content-center" type="password" name="pwd" placeholder="Password">
