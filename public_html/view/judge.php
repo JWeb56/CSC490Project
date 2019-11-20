@@ -57,7 +57,7 @@ if (!isset($_SESSION['user'])) {
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Judge Me App Judging Page</title>
+        <title>Easy Adjudicate Judging Page</title>
     </head>
     <body onload="startColor()">
     <div class="wrapper">
@@ -144,8 +144,6 @@ if (!isset($_SESSION['user'])) {
                     <h1>Events to Judge:</h1>
                     <div id="dynamic-div2" class="list-group" style="display: none">
                     </div>
-                    <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
-                    <a type="button" class="btn btn-success" href="createdEvents.php">Created Events</a>
                     <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
                 </div>
             </div>

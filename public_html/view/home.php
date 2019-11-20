@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <title>Judge Me App Home Page</title>
+        <title>Easy Adjudicate Home Page</title>
     </head>
     <script>
         const name = window.localStorage.getItem("e_name");
@@ -144,7 +144,6 @@ if (!isset($_SESSION['user'])) {
                     <div id="dynamic-div2" class="list-group" style="display: none">
                     </div>
                     <div>
-                        <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
                         <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
                     </div>
                 </div>

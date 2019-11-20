@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
                 margin-top: 15%;
             }
         </style>
-        <title>Judge Me App Winners Page</title>
+        <title>Easy Adjudicate Winners Page</title>
     </head>
 <script>
 const person = window.localStorage.getItem("per")
