@@ -149,8 +149,6 @@ if (!isset($_SESSION['user'])) {
                     <h1>Events to Judge:</h1>
                     <div id="dynamic-div2" class="list-group" style="display: none">
                     </div>
-                    <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
-                    <a type="button" class="btn btn-success" href="createdEvents.php">Created Events</a>
                     <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
                 </div>
             </div>

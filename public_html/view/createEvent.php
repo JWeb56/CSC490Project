@@ -52,7 +52,7 @@
             <div class="container-fluid">
                 <p class="h6"> Welcome
                     <?php
-                    session_start();
+
                     echo $_SESSION['user']
                     ?>
                 </p>

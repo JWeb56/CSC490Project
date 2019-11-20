@@ -145,7 +145,6 @@ if (!isset($_SESSION['user'])) {
                     <div id="dynamic-div2" class="list-group" style="display: none">
                     </div>
                     <div>
-                        <a type="button" class="btn btn-warning" href="createEvent.php">Create Event</a>
                         <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
                     </div>
                 </div>
