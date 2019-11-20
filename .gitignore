@@ -175,4 +175,4 @@ demos/
 extras/documentation
 
 #DB Config
-public_html/includes/db.inc.php
+db.inc.php
