@@ -58,6 +58,13 @@
   </a>
 </li>
 
+<li class="nav-item">
+   <a class="nav-link" href="../../admin/session.php">
+       <i class="fas fa-fw fa-folder"></i>
+       <span>Manage Sessions</span>
+   </a>
+</li>
+
 
 
 

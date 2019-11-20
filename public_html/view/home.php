@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <title>Judge Me App Home Page</title>
+        <title>Easy Adjudicate Home Page</title>
     </head>
     <script>
         const name = window.localStorage.getItem("e_name");
