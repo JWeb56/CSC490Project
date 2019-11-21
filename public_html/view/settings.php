@@ -10,15 +10,10 @@ if (!isset($_SESSION['user'])) {
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <style>
-            .jumbotron{
-                margin-top: 15%;
-            }
-        </style>
         <title>Judge Me App Settings Page</title>
     </head>
     <body onload="startColor()">
-        <div id="wrap" class="wrapper">
+        <nav id="wrap" class="wrapper">
             <div id="sidebar" class="sidebar" data-color="purple" data-background-color="blue">
             <div class="sidebar-wrapper" style="margin-top: 25%">
                 <ul class="nav">
@@ -93,18 +88,19 @@ if (!isset($_SESSION['user'])) {
                             </li>
                         </ul>
                     </div>
-                </div>
+        </nav>
             <div class="container">
                 <div id="checkbox-container">
-                    <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
+                    <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black; width: 60%; margin-left: 20%">
                         <h1>Settings </h1>
                     </div>
                 </div>
             </div>
-            <div class="custom-control custom-switch" style="margin-left:17%">
+            <div class="custom-control custom-switch" style="margin-left:31%">
                 <input type="checkbox" class=" submit custom-control-input h4" id="customSwitch1" onclick="stupid()">
                 <label class="custom-control-label h4" for="customSwitch1">Seasonal Dark Theme</label>
             </div>
+    </div>
     </body>
     </html>
 <?php require_once("footer.php"); ?>
