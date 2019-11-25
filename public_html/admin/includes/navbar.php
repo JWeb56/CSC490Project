@@ -65,6 +65,13 @@
    </a>
 </li>
 
+<li class="nav-item">
+   <a class="nav-link" href="../../admin/results.php">
+       <i class="fas fa-fw fa-address-card"></i>
+       <span>Results</span>
+   </a>
+</li>
+
 
 
 
