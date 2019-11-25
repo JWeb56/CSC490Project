@@ -99,7 +99,7 @@ function adder() {
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="Profile.php">Profile</a>
                                     <a class="dropdown-item" href="settings.php">Settings</a>
                                     <div class="dropdown-divider"></div>
                                     <form action="../includes/logout.inc.php" method="post">

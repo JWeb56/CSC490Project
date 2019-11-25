@@ -1,15 +1,23 @@
 <?php require_once("header.php");
+// Prevent against back clicks after logout
 if (!isset($_SESSION['user'])) {
     header("location: ../index.php");
     exit();
 }?>
 
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>Easy Adjudicate Home Page</title>
+    </head>
     <script>
-        const name = window.localStorage.getItem("e_name")
-        const categories = window.localStorage.getItem("c_names")
-        const judges = window.localStorage.getItem("j_names")
-        const date = window.localStorage.getItem("d")
-        const time = window.localStorage.getItem("t")
+        const name = window.localStorage.getItem("e_name");
+        const categories = window.localStorage.getItem("c_names");
+        const judges = window.localStorage.getItem("j_names");
+        const date = window.localStorage.getItem("d");
+        const time = window.localStorage.getItem("t");
         const userCode = window.localStorage.getItem("u_code").trim();
         const code = window.localStorage.getItem("code");
 
@@ -18,59 +26,21 @@ if (!isset($_SESSION['user'])) {
         sName = "<?php echo $_SESSION['user'];?>";
         C2 = window.localStorage.getItem("creator");
         function adder() {
-            btn = document.createElement("A");
-            btn.innerHTML = name;
-            btn.className += 'list-group-item';
-            btn.href = "event.php";
-            document.getElementById('dynamic-div2').appendChild(btn);
 
-            if(userCode === code && name !== null) {
-                document.getElementById('dynamic-div2').style.display = 'block';
-            }
-            bool = false;
-            bool2 = false;
-            for(g = 0; g < temp2.length; g++){
-                if (temp2[g].toLowerCase() === sName.toLowerCase()){
-                    bool = true;
-                }
-                if(sName.toLowerCase() === C2.toLowerCase()){
-                    bool2 = true;
-                }
-            }
-            if(bool === true && bool2 === false) {
-                document.getElementById('dynamic-div2').style.display = 'block';
-            }
-            if(bool === false && bool2 === false) {
-                document.getElementById('dynamic-div2').style.display = 'none';
-            }
-            if(bool === true && bool2 === true){
-                document.getElementById('dynamic-div2').style.display = 'none';
-            }
-            if(bool === false && bool2 === true){
-                document.getElementById('dynamic-div2').style.display = 'none';
-            }
         }
     </script>
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Easy Adjudicate Judging Page</title>
-    </head>
     <body onload="startColor()">
-    <div class="wrapper">
-        <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
+    <div id="wrap" class="wrapper">
+        <div id="sidebar" class="sidebar" data-color="grey" data-background-color="grey">
             <div class="sidebar-wrapper" style="margin-top: 25%">
                 <ul class="nav">
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a class="nav-link" href="home.php">
                             <i id="icon1" class="material-icons">home</i>
                             <p id="p1">Home</p>
                         </a>
                     </li>
-                    <li class="nav-item active ">
+                    <li class="nav-item ">
                         <a class="nav-link" href="judge.php">
                             <i id="icon2" class="material-icons">assignment</i>
                             <p id="p2">Judge Events</p>
@@ -122,7 +92,7 @@ if (!isset($_SESSION['user'])) {
                                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
                                     <p class="d-lg-none d-md-block">
-                                    <p class="h6" style="text-transform: capitalize; display: inline-block"><?php echo $_SESSION['user']?></p>
+                                    <p class="h6" style="text-transform: capitalize; display: inline-block"><?php echo $_SESSION['user'];?></p>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
@@ -138,15 +108,27 @@ if (!isset($_SESSION['user'])) {
                     </div>
                 </div>
             </nav>
-
-            <div class="container">
-                <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
-                    <h1>Events to Judge:</h1>
-                    <div id="dynamic-div2" class="list-group" style="display: none">
+            <div class="container display-block">
+                <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
+                        <div class="card card-profile">
+                            <div class="card-avatar mt-3">
+                                <a href="#pablo">
+                                    <img class="img" src="../view/1*MccriYX-ciBniUzRKAUsAw.png" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-category text-gray"> Username:</h6>
+                                <h4 class="card-title"><?php echo ucfirst($_SESSION['user']);?></h4>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-category text-gray"> Email:</h6>
+                                <h4 class="card-title"><?php echo ucfirst($_SESSION['email']);?></h4>
+                            </div>
+                        </div>
                     </div>
-                    <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
-                </div>
             </div>
+        </div>
+    </div>
     </body>
     </html>
 
