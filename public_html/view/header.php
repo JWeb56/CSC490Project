@@ -32,11 +32,6 @@
         const standard_color = window.localStorage.getItem("s_color")
         const font_color = window.localStorage.getItem("f_color")
 
-        const paragraph_color = window.localStorage.getItem("p_color")
-        const icon_color = window.localStorage.getItem("i_color")
-        const nav_color = window.localStorage.getItem("nav_color")
-        const nav_back = window.localStorage.getItem("nav_back")
-        const side_color = window.localStorage.getItem("side_color")
         const side_bs = window.localStorage.getItem("side_bs")
         const jumbo_bs = window.localStorage.getItem("jumbo_bs")
 
@@ -54,19 +49,15 @@
         p3 = document.getElementById('p3');
         p4 = document.getElementById('p4');
         jumbo = document.getElementById('jumbotron');
+        link1 = document.getElementById('l1');
+        link2 = document.getElementById('l2');
+        link3 = document.getElementById('l3');
+        link4 = document.getElementById('l4');
 
-        nav.style.color = nav_color;
-        nav.style.backgroundColor = nav_back;
-        sidebar.style.backgroundColor = side_color;
-        sidebar.style.boxShadow = side_bs;
-        icon.style.color = icon_color;
-        icon2.style.color = icon_color;
-        icon3.style.color = icon_color;
-        icon4.style.color = icon_color;
-        p.style.color = paragraph_color;
-        p2.style.color = paragraph_color;
-        p3.style.color = paragraph_color;
-        p4.style.color = paragraph_color;
+        link1.style.boxShadow = side_bs;
+        link2.style.boxShadow = side_bs;
+        link3.style.boxShadow = side_bs;
+        link4.style.boxShadow = side_bs;
         jumbo.style.boxShadow = jumbo_bs;
 
         adder();

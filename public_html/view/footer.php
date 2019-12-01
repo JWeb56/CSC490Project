@@ -193,7 +193,7 @@
         document.body.style.color= font;
 
     }
-    let s_color, f_color, nav, sidebar, icon, icon2, icon3, icon4, p, p2, p3, p4, jumbo;
+    let s_color, f_color, nav, sidebar, icon, icon2, icon3, icon4, p, p2, p3, p4, jumbo, link1, link2, link3, link4;
 
     function stupid() {
         nav = document.getElementById('navbar');
@@ -207,54 +207,32 @@
         p3 = document.getElementById('p3');
         p4 = document.getElementById('p4');
         jumbo = document.getElementById('jumbotron');
+        link1 = document.getElementById('l1');
+        link2 = document.getElementById('l2');
+        link3 = document.getElementById('l3');
+        link4 = document.getElementById('l4');
         if(document.body.style.backgroundColor.valueOf() === 'black') {
             changeColor('linear-gradient(to bottom, grey, black)','white');
-            nav.style.backgroundColor = "white";
-            nav.style.color = "grey";
-            sidebar.style.backgroundColor = "white";
-            sidebar.style.boxShadow= '10px 10px 5px black';
-            icon.style.color = "black";
-            icon2.style.color = "black";
-            icon3.style.color = "black";
-            icon4.style.color = "black";
-            p.style.color = 'black';
-            p2.style.color = 'black';
-            p3.style.color = 'black';
-            p4.style.color = 'black';
             jumbo.style.boxShadow = '10px 10px 5px black';
+            link1.style.boxShadow = '10px 10px 5px black';
+            link2.style.boxShadow = '10px 10px 5px black';
+            link3.style.boxShadow = '10px 10px 5px black';
+            link4.style.boxShadow = '10px 10px 5px black';
             window.localStorage.setItem('s_color','linear-gradient(to bottom, grey, black)');
             window.localStorage.setItem('f_color','white');
-            window.localStorage.setItem('p_color', 'black');
-            window.localStorage.setItem('i_color', 'black');
-            window.localStorage.setItem('side_color', 'white');
             window.localStorage.setItem('side_bs', '10px 10px 5px black');
             window.localStorage.setItem('jumbo_bs', '10px 10px 5px black');
-            window.localStorage.setItem('nav_color', 'grey');
-            window.localStorage.setItem('nav_back', 'white');
         } else {
-            changeColor('black', 'darkorange');
-            nav.style.backgroundColor = "grey";
-            nav.style.color = "white";
-            sidebar.style.backgroundColor = "grey";
-            sidebar.style.boxShadow= '10px 10px 5px orange';
-            icon.style.color = "white";
-            icon2.style.color = "white";
-            icon3.style.color = "white";
-            icon4.style.color = "white";
-            p.style.color = 'white';
-            p2.style.color = 'white';
-            p3.style.color = 'white';
-            p4.style.color = 'white';
-            jumbo.style.boxShadow= '10px 10px 5px orange';
+            changeColor('black', 'green');
+            jumbo.style.boxShadow= '10px 10px 5px red';
+            link1.style.boxShadow = '10px 10px 5px red';
+            link2.style.boxShadow = '10px 10px 5px red';
+            link3.style.boxShadow = '10px 10px 5px red';
+            link4.style.boxShadow = '10px 10px 5px red';
             window.localStorage.setItem('s_color','black');
-            window.localStorage.setItem('f_color','darkorange');
-            window.localStorage.setItem('p_color', 'white');
-            window.localStorage.setItem('i_color', 'white');
-            window.localStorage.setItem('side_color', 'grey');
-            window.localStorage.setItem('side_bs', '10px 10px 5px orange');
-            window.localStorage.setItem('jumbo_bs', '10px 10px 5px orange');
-            window.localStorage.setItem('nav_color', 'white');
-            window.localStorage.setItem('nav_back', 'grey');
+            window.localStorage.setItem('f_color','green');
+            window.localStorage.setItem('side_bs', '10px 10px 5px red');
+            window.localStorage.setItem('jumbo_bs', '10px 10px 5px red');
 
         }
     }

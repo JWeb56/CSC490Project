@@ -65,25 +65,25 @@ if (!isset($_SESSION['user'])) {
             <div class="sidebar-wrapper" style="margin-top: 25%">
                 <ul class="nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="home.php">
+                        <a id="l1" class="nav-link" href="home.php">
                             <i id="icon1" class="material-icons">home</i>
                             <p id="p1">Home</p>
                         </a>
                     </li>
                     <li class="nav-item active ">
-                        <a class="nav-link" href="judge.php">
+                        <a id="l2" class="nav-link" href="judge.php">
                             <i id="icon2" class="material-icons">assignment</i>
                             <p id="p2">Judge Events</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="evaluation.php">
+                        <a id="l3" class="nav-link" href="evaluation.php">
                             <i id="icon3" class="material-icons">grade</i>
                             <p id="p3">Evaluations</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="settings.php">
+                        <a id="l4" class="nav-link" href="settings.php">
                             <i id="icon4" class="material-icons">settings</i>
                             <p id="p4">Settings</p>
                         </a>
