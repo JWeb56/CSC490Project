@@ -22,7 +22,7 @@ mysqli_query($connection, "
             );
         ");
 $total = intval("<script> window.localStorage.getItem('tot');</script>");
-$code = "<script>window.localStorage.getItem('u_code');";
+$code = "<script>window.localStorage.getItem('u_code').trim();";
 $person = "<script>window.localStorage.getItem('per');";
 // Micah you will pass your total score here, and I guess we'll talk Thursday about how to set session_id for each judge
 $name = $person;
