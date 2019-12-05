@@ -23,14 +23,15 @@ mysqli_query($connection, "
         ");
 $total = intval("<script> window.localStorage.getItem('tot');</script>");
 $code = "<script>window.localStorage.getItem('u_code');";
+$person = "<script>window.localStorage.getItem('per');";
 // Micah you will pass your total score here, and I guess we'll talk Thursday about how to set session_id for each judge
-$name = NULL;
-$session_id = NULL; // Placeholder -- we need to determine how we're gonna bind session ids to judges tomorrow I guess
+$name = $person;
+$session_id = $code; // Placeholder -- we need to determine how we're gonna bind session ids to judges tomorrow I guess
 $judge_id = $_SESSION['user_uuid']; // This is already set as a session variable
 $score = $total; // Placeholder -- Micah you need to fill this in
 
 
-$sql = "INSERT INTO participant (uuid, session_id, judge_id, total_score) values(?, ?, ?, ?)";
+$sql = "INSERT INTO participant (uuid, name, session_id, judge_id, total_score) values(?, ?, ?, ?, ?)";
 $query = mysqli_stmt_init($connection);
 // Error with preparing the statement
 if (!mysqli_stmt_prepare($query, $sql)) {
