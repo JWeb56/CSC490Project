@@ -14,14 +14,10 @@
         width: 60%;
         margin-left: 20%;
     }
-    html {
-        height: 100%;
-    }
 
     body {
         height: 100%;
         margin: 0;
-        overflow: hidden;
         background: linear-gradient(to bottom, grey, black);
     }
 
