@@ -26,14 +26,11 @@ if (isset($_POST['session-create-submit'])) {
     $num_participants = $_POST['num_participants'];
 
     // Empty input provided
-    if (empty($name) || empty($category) || empty($judge)) {
+    if (empty($event_name) || empty($num_participants)) {
         header("location: ../admin/session-create.php?error=emptyfields");
         exit();
     } // Invalid email entered for judge
-    else if (!filter_var($judge, FILTER_VALIDATE_EMAIL)) {
-        header("location: ../admin/session-create.php?error=invalidjudgeemail");
-        exit();
-    } // Proper values entered
+     // Proper values entered
     else {
         $sql = "INSERT INTO session (uuid, event_name, num_participants) values(?, ?, ?)";
         $query = mysqli_stmt_init($connection);
