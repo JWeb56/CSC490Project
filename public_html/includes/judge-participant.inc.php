@@ -21,12 +21,13 @@ mysqli_query($connection, "
                 total_score INT(11)
             );
         ");
-
+$total = intval("<script> window.localStorage.getItem('tot');</script>");
+$code = "<script>window.localStorage.getItem('u_code');";
 // Micah you will pass your total score here, and I guess we'll talk Thursday about how to set session_id for each judge
 $name = NULL;
 $session_id = NULL; // Placeholder -- we need to determine how we're gonna bind session ids to judges tomorrow I guess
 $judge_id = $_SESSION['user_uuid']; // This is already set as a session variable
-$score = NULL; // Placeholder -- Micah you need to fill this in
+$score = $total; // Placeholder -- Micah you need to fill this in
 
 
 $sql = "INSERT INTO participant (uuid, session_id, judge_id, total_score) values(?, ?, ?, ?)";
@@ -39,6 +40,6 @@ if (!mysqli_stmt_prepare($query, $sql)) {
 else {
     mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $n = $name, $s = $session_id, $j = $judge_id, $s = $score);
     mysqli_stmt_execute($query);
-    header("location: ../admin/index.php?sessionCreate=success");
+    header("location: ../view/home.php");
     exit();
 }

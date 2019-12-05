@@ -172,7 +172,7 @@
             window.localStorage.setItem('per', person);
             window.localStorage.setItem('tot', f_total);
 
-            document.location.href = 'evaluation.php';
+            <?php require ('../includes/judge-participant.inc.php'); ?>
         }
     }
 </script>
