@@ -9,20 +9,21 @@
     <title>Judge Me App Judging Page</title>
 </head>
 <script>
-    const name = window.localStorage.getItem("e_name")
-    const categories = window.localStorage.getItem("c_names")
-    const judges = window.localStorage.getItem("j_names")
-    const date = window.localStorage.getItem("d")
-    const time = window.localStorage.getItem("t")
+    const name = window.localStorage.getItem("e_name");
+    const categories = window.localStorage.getItem("c_names");
+    const judges = window.localStorage.getItem("j_names");
+    const date = window.localStorage.getItem("d");
+    const time = window.localStorage.getItem("t");
 
     let btn, temp, i, c, z, form, personArr,  paragraph, divider, divider2, input, input2, input3, input4, input5, input6, label, label2, label3, label4, label5, label6, submit;
-    let person, total, selected, j, f_total;
+    let person, total, selected, j, f_total, static_cat;
+    static_cat = "Creativity, Time, Delivery, Organization, Effectiveness";
     function adder() {
 
         splitter();
     }
     function splitter(){
-         temp = categories.trim().split(',');
+         temp = static_cat.trim().split(',');
 
         form = document.createElement("FORM");
         form.id = 'sheet';
