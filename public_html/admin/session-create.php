@@ -29,10 +29,7 @@ include('includes/navbar.php');
                                         <input type="text" class="form-control mt-1" name="event_name" placeholder="Name of Event">
                                     </div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control mt-1" name="event_category" style="flex-wrap: wrap;" placeholder="Category Names">
-                                    </div>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control mt-1" name="event_judge" placeholder="Judges for the event">
+                                        <input type="text" class="form-control mt-1" name="num_participants" style="flex-wrap: wrap;" placeholder="Number of Participants/Posters">
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-success" name="session-create-submit">Create</button>

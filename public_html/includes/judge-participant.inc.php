@@ -15,6 +15,7 @@ mysqli_query($connection, "
             CREATE TABLE IF NOT EXISTS participant (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
                 uuid VARCHAR(32), 
+                name VARCHAR(32),
                 session_id VARCHAR(32), 
                 judge_id VARCHAR(128), 
                 total_score INT(11)
@@ -22,6 +23,7 @@ mysqli_query($connection, "
         ");
 
 // Micah you will pass your total score here, and I guess we'll talk Thursday about how to set session_id for each judge
+$name = NULL;
 $session_id = NULL; // Placeholder -- we need to determine how we're gonna bind session ids to judges tomorrow I guess
 $judge_id = $_SESSION['user_uuid']; // This is already set as a session variable
 $score = NULL; // Placeholder -- Micah you need to fill this in
@@ -35,7 +37,7 @@ if (!mysqli_stmt_prepare($query, $sql)) {
     exit();
 } // Everything is good to go - insert into db and redirect to home page
 else {
-    mysqli_stmt_bind_param($query, "sssi", $u = generateNewUuid(), $s = $session_id, $j = $judge_id, $s = $score);
+    mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $n = $name, $s = $session_id, $j = $judge_id, $s = $score);
     mysqli_stmt_execute($query);
     header("location: ../admin/index.php?sessionCreate=success");
     exit();
