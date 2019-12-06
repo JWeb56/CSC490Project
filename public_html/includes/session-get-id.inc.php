@@ -32,12 +32,18 @@ if (isset($_POST['sessionId-submit'])) {
         $i = 0;
         // There is at least one result from the query
         while ($row = mysqli_fetch_assoc($result)) {
-            $results[$i]['uuid'] = $row['uuid'];
-            $results[$i]['event_name'] = $row['event_name'];
-            $results[$i]['num_participants'] = $row['num_participants'];
-            $i++;
+            if ($row['uuid'] == $sessionCode) {
+                $results['uuid'] = $row['uuid'];
+                $results['event_name'] = $row['event_name'];
+                $results['num_participants'] = $row['num_participants'];
+                $_SESSION['current_session'] = $results;
+                $_SESSION['session_login'] = true;
+                header("location: ../view/home.php");
+                exit();
+            }
         }
-        $_SESSION['current_sessions'] = $results;
+        $_SESSION['session_login'] = false;
+        header("location: ../view/joinEvent.php?error=invalidSessionId");
     }
 }
 
