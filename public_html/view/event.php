@@ -142,13 +142,13 @@
         divider2.id = 'end';
         document.getElementById('jumbotron').appendChild(divider2);
 
-        submit = document.createElement("BUTTON");
-        submit.type = 'submit';
-        submit.className = 'btn btn-success';
-        submit.innerHTML = "Submit";
-        submit.id = 'submit';
-        submit.addEventListener("click", stats);
-        document.getElementById('end').appendChild(submit);
+        // submit = document.createElement("BUTTON");
+        // submit.type = 'submit';
+        // submit.className = 'btn btn-success';
+        // submit.innerHTML = "Submit";
+        // submit.id = 'submit';
+        // submit.addEventListener("click", stats);
+        // document.getElementById('end').appendChild(submit);
 
         function stats(){
             person = document.getElementById('person').value;
@@ -255,9 +255,8 @@
         <div class="container">
             <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                 <h1><?php echo $_SESSION['session_login'];?></h1>
-            </div>
-            <div id="dynamic-div2" class="list-group" style="display: block">
                 <form id="sheet" method="post" action="../includes/judge-participant.inc.php">
+
                 </form>
             </div>
         </div>
