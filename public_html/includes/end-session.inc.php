@@ -2,64 +2,39 @@
 
 // User clicked the 'login' button
 if (isset($_POST['endSession-submit'])) {
-
+    session_start();
     require 'db.inc.php';
 
     // Get the Session ID to be ended
-
+    $sessionId = $_POST['delete-id'];
     // Nothing was entered into login form
-    if (empty($login) || empty($password)) {
-        header("location: ../index.php?error=emptyfields");
+    if (empty($sessionId)) {
+        header("location: ../admin/session.php?error=noSessionSelected");
         exit();
     }
+    // There was no problem getting the session ID we want to end and evaluate
     else {
-        $sql = "SELECT * FROM users WHERE username=? OR email=?";
+        $sql = "UPDATE session set active = 0 WHERE id=?";
 
         $stmt = mysqli_stmt_init($connection);
         // Prepare the sql query
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: ../index.php?error=sqlerror");
+            header("location: ../admin/session.php?error=sqlerror");
             exit();
         }
         // No syntactical or other problems with query
         else {
-            // Bind the query parameters, execute, and fetch result
-            mysqli_stmt_bind_param($stmt, "ss", $login, $login);
+            // Bind the query parameters and execute
+            mysqli_stmt_bind_param($stmt, "i", $s = $sessionId);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
-            // There is at least one result from the query
-            if ($row = mysqli_fetch_assoc($result)) {
-                // Entered password does not match the one stored in db
-                if (!password_verify($password, $row['password'])) {
-                    header("location: ../index.php?error=wrongpassword");
-                    exit();
-                }
-                // Successful Login - start session and store
-                else {
-                    session_start();
-                    $_SESSION['user'] = $row['username'];
-                    $_SESSION['userUuid'] = $row['uuid'];
-                    $_SESSION['email'] = $row['email'];
-                    // If this is an admin, redirect accordingly
-                    if ($row['auth_level'] == 1) {
-                        header("location: ../admin/index.php?login=success");
-                        exit();
-                    }
-                    // Normal user, direct to home page
-                    header("location: ../view/home.php?login=success");
-                    exit();
-                }
-            }
-            // There is no user with the provided username
-            else {
-                header("location: ../index.php?error=nouser");
-                exit();
-            }
+            header("location: ../admin/results.php?endSession=success");
+            exit();
         }
     }
 }
 // Someone tried to access this page without submitting the login form
 else {
-    header("location: ../index.php");
+    header("location: ../admin/session.php?error=mustClickButton");
     exit();
 }
