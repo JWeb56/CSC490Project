@@ -96,7 +96,7 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
                         <input id="code" type="text" class="form-control mt-1" name="code" placeholder="Enter Event Code Here">
                     </div>
-                    <button id="uCode" type="submit" class="btn btn-success">Submit</button>
+                    <button id="uCode" name="sessionId-submit" type="submit" class="btn btn-success">Submit</button>
             </div>
             </form>
 
