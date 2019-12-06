@@ -16,7 +16,7 @@
     const time = window.localStorage.getItem("t");
 
     let btn, temp, i, c, z, form, personArr,  paragraph, divider, divider2, input, input2, input3, input4, input5, input6, label, label2, label3, label4, label5, label6, submit;
-    let person, total, selected, j, f_total, static_cat;
+    let person, total, selected, j, f_total, static_cat, k;
     static_cat = "Creativity, Time, Delivery, Organization, Effectiveness";
     function adder() {
 
@@ -32,6 +32,7 @@
         document.getElementById('sheet').appendChild(personArr);
 
         c = temp.length;
+        k = 0;
 
         for(i = 0; i < temp.length; i++){
             paragraph = document.createElement("P");
@@ -53,6 +54,7 @@
             input.type = 'radio';
             input.value = 0;
             input.id = c;
+            input.name = k;
             input.style.marginRight = '3%';
             input.className += 'check';
             document.getElementById(i).appendChild(input);
@@ -69,6 +71,7 @@
             input2.type = 'radio';
             input2.value = 1;
             input2.id = c;
+            input2.name = k;
             input2.style.marginRight = '3%';
             input2.className += 'check';
             document.getElementById(i).appendChild(input2);
@@ -85,6 +88,7 @@
             input3.type = 'radio';
             input3.value = 2;
             input3.id = c;
+            input3.name = k;
             input3.style.marginRight = '3%';
             input3.className += 'check';
             document.getElementById(i).appendChild(input3);
@@ -101,6 +105,7 @@
             input4.type = 'radio';
             input4.value = 3;
             input4.id = c;
+            input4.name = k;
             input4.style.marginRight = '3%';
             input4.className += 'check';
             document.getElementById(i).appendChild(input4);
@@ -117,6 +122,7 @@
             input5.type = 'radio';
             input5.value = 4;
             input5.id = c;
+            input5.name = k;
             input5.style.marginRight = '3%';
             input5.className += 'check';
             document.getElementById(i).appendChild(input5);
@@ -133,10 +139,12 @@
             input6.type = 'radio';
             input6.value = 5;
             input6.id = c;
+            input6.name = k;
             input6.className += 'check';
             document.getElementById(i).appendChild(input6);
 
             c++;
+            k++;
         }
         divider2 = document.createElement("DIV");
         divider2.id = 'end';
@@ -264,6 +272,39 @@
             </div>
         </div>
 </body>
+<script>
+    (function($) {
+        $.fn.uncheckableRadio = function() {
+            var $root = this;
+            $root.each(function() {
+                var $radio = $(this);
+                if ($radio.prop('checked')) {
+                    $radio.data('checked', true);
+                } else {
+                    $radio.data('checked', false);
+                }
+
+                $radio.click(function() {
+                    var $this = $(this);
+                    if ($this.data('checked')) {
+                        $this.prop('checked', false);
+                        $this.data('checked', false);
+                        $this.trigger('change');
+                    } else {
+                        $this.data('checked', true);
+                        $this.closest('form').find('[name="' + $this.prop('name') + '"]').not($this).data('checked', false);
+                    }
+                });
+            });
+            return $root;
+        };
+    }(jQuery));
+
+    $('[type=radio]').uncheckableRadio();
+    $('button').click(function() {
+        $('[value=V2]').prop('checked', true).trigger('change').trigger('click');
+    });
+</script>
 </html>
 
 <?php require_once("footer.php"); ?>
