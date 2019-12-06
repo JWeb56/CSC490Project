@@ -159,6 +159,25 @@
         submit.addEventListener("click", stats);
         document.getElementById('sheet').appendChild(submit);
 
+        $(document).ready(function(){
+            $('#radioValidate').click(function(){
+                var check = true;
+                $("input:radio").each(function(){
+                    var name = $(this).attr("name");
+                    if($("input:radio[name="+name+"]:checked").length == 0){
+                        check = false;
+                    }
+                });
+
+                if(check){
+                    stats();
+                }else{
+                    alert('Please select one option in each question.');
+                    window.location.href = "event.php";
+                }
+            });
+        });
+
         function stats(){
             person = document.getElementById('person').value;
             handleClick();
