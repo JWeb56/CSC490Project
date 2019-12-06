@@ -42,8 +42,8 @@ if (isset($_POST['sessionId-submit'])) {
                 exit();
             }
         }
-        $_SESSION['session_login'] = false;
         header("location: ../view/joinEvent.php?error=invalidSessionId");
+        exit();
     }
 }
 
