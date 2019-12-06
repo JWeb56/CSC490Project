@@ -47,7 +47,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <td> <?php echo $entry['id'] ?> </td>
                             <td> <?php echo $entry['event_name'] ?> </td>
                             <td> <form action="../includes/end-session.inc.php" method="post">
-                                    <input type="hidden" value="<?php echo $result; ?>"/>
+                                    <input type="hidden" name="delete-id" value="<?php echo $entry['id']; ?>"/>
                                     <button class="btn btn-success" type="submit" name="endSession-submit">End Session and Evaluate</button>
                                 </form></td>
 
