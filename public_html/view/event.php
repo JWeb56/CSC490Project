@@ -156,10 +156,10 @@
         submit.innerHTML = "Submit";
         submit.id = 'submit';
         submit.name = 'judgeParticipants-submit';
-        submit.addEventListener("click", stats);
+        submit.addEventListener("click", start);
         document.getElementById('sheet').appendChild(submit);
 
-        $(document).ready(function(){
+        function start(){
                 var check = true;
                 $("input:radio").each(function(){
                     var name = $(this).attr("name");
