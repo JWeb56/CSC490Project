@@ -129,6 +129,7 @@ error_log("Session value is: " . $session_value);
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
                     <h1>Events to Judge:</h1>
                     <div id="dynamic-div2" class="list-group" style="display: block">
+                        <a class="list-group-item" href="event.php">"<?php echo $_SESSION['user'];?>"</a>
                     </div>
                     <div>
                         <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
