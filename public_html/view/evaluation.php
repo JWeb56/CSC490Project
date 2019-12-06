@@ -44,9 +44,9 @@ function adder() {
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a id="l2" class="nav-link" href="judge.php">
-                            <i id="icon2" class="material-icons">assignment</i>
-                            <p id="p2">Judge Events</p>
+                        <a id="l2" class="nav-link" href="Profile.php">
+                            <i id="icon2" class="material-icons">person</i>
+                            <p id="p2">Profile</p>
                         </a>
                     </li>
                     <li class="nav-item active ">
