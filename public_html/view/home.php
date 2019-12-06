@@ -128,8 +128,9 @@ error_log("Session value is: " . $session_value);
             <div class="container display-block">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
                     <h1>Events to Judge:</h1>
-                    <div id="dynamic-div2" class="list-group" style="display: block">
-                        <a class="list-group-item" href="event.php">"<?php echo $_SESSION['session_login'];?>"</a>
+                    <?php $displayString = isset($_SESSION['session_login']) ? "block" : "none"?>
+                    <div id="dynamic-div2" class="list-group" style="display: <?php echo $displayString ?>">
+                        <a class="list-group-item" href="event.php"><?php echo $_SESSION['session_login'];?></a>
                     </div>
                     <div>
                         <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>
