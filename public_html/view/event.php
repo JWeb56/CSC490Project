@@ -142,13 +142,14 @@
         divider2.id = 'end';
         document.getElementById('jumbotron').appendChild(divider2);
 
-        // submit = document.createElement("BUTTON");
-        // submit.type = 'submit';
-        // submit.className = 'btn btn-success';
-        // submit.innerHTML = "Submit";
-        // submit.id = 'submit';
-        // submit.addEventListener("click", stats);
-        // document.getElementById('end').appendChild(submit);
+        submit = document.createElement("BUTTON");
+        submit.type = 'submit';
+        submit.className = 'btn btn-success';
+        submit.innerHTML = "Submit";
+        submit.id = 'submit';
+        submit.name = 'judgeParticipants-submit';
+        submit.addEventListener("click", stats);
+        document.getElementById('end').appendChild(submit);
 
         function stats(){
             person = document.getElementById('person').value;
