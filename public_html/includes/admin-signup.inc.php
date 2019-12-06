@@ -33,6 +33,7 @@ if (isset($_POST['signup-submit'])) {
         ");
 
     // Get the values entered by the user
+    
     $username = $_POST['user_name'];
     $email = $_POST['email'];
     $password = $_POST['pwd'];
