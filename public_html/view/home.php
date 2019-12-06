@@ -27,7 +27,7 @@ if (!isset($_SESSION['user'])) {
         C2 = window.localStorage.getItem("creator");
         function adder() {
             btn = document.createElement("A");
-            btn.innerHTML = name;
+            btn.innerHTML = <?php echo $results['event_name'];?>
             btn.className += 'list-group-item';
             btn.href = "event.php";
             document.getElementById('dynamic-div2').appendChild(btn);
