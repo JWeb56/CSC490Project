@@ -5,7 +5,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 require '../includes/db.inc.php';
-$sql = "select name, session_id, total_score from participant where judge_id = ?";
+$sql = "select p.name as Participant, s.event_name as DaEvent, p.total_score from participant as p, session as s where p.session_id = s.uuid and judge_id = ?;";
 $stmt = mysqli_stmt_init($connection);
 mysqli_stmt_prepare($stmt, $sql);
 error_log("Session UUID: " . $_SESSION['userUuid']);

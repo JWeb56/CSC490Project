@@ -174,7 +174,7 @@
                     alert('Please select one option in each question.');
                     window.location.href = "event.php";
                 }
-        });
+        }
 
         function stats(){
             person = document.getElementById('person').value;
