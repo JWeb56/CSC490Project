@@ -32,31 +32,32 @@ if (!isset($_SESSION['user'])) {
             btn.href = "event.php";
             document.getElementById('dynamic-div2').appendChild(btn);
 
-            if(userCode === code && name !== null) {
+            <?php if(isset($_SESSION['session_login'])) {?>
                 document.getElementById('dynamic-div2').style.display = 'block';
-            }
-            bool = false;
-            bool2 = false;
-            for(g = 0; g < temp2.length; g++){
-                if (temp2[g].toLowerCase() === sName.toLowerCase()){
-                    bool = true;
-                }
-                if(sName.toLowerCase() === C2.toLowerCase()){
-                    bool2 = true;
-                }
-            }
-            if(bool === true && bool2 === false) {
-                document.getElementById('dynamic-div2').style.display = 'block';
-            }
-            if(bool === false && bool2 === false) {
-                document.getElementById('dynamic-div2').style.display = 'none';
-            }
-            if(bool === true && bool2 === true){
-                document.getElementById('dynamic-div2').style.display = 'none';
-            }
-            if(bool === false && bool2 === true){
-                document.getElementById('dynamic-div2').style.display = 'none';
-            }
+           <?php } ?>
+            // }
+            // bool = false;
+            // bool2 = false;
+            // for(g = 0; g < temp2.length; g++){
+            //     if (temp2[g].toLowerCase() === sName.toLowerCase()){
+            //         bool = true;
+            //     }
+            //     if(sName.toLowerCase() === C2.toLowerCase()){
+            //         bool2 = true;
+            //     }
+            // }
+            // if(bool === true && bool2 === false) {
+            //     document.getElementById('dynamic-div2').style.display = 'block';
+            // }
+            // if(bool === false && bool2 === false) {
+            //     document.getElementById('dynamic-div2').style.display = 'none';
+            // }
+            // if(bool === true && bool2 === true){
+            //     document.getElementById('dynamic-div2').style.display = 'none';
+            // }
+            // if(bool === false && bool2 === true){
+            //     document.getElementById('dynamic-div2').style.display = 'none';
+            // }
         }
     </script>
     <body onload="startColor()">
