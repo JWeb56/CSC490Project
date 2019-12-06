@@ -4,8 +4,13 @@ if (!isset($_SESSION['user'])) {
     header("location: ../index.php");
     exit();
 }
+//$session_isset = isset($_SESSION['session_login']);
 if (isset($_SESSION['session_login'])) {
-error_log("Checking session variable: " . $_SESSION['session_login']);}?>
+    error_log("Session login variable is set");
+}
+$session_value = isset($_SESSION['session_login']) ? $_SESSION['session_login'] : "";
+error_log("Session value is: " . $session_value);
+?>
 
     <!doctype html>
     <html lang="en">
@@ -27,41 +32,16 @@ error_log("Checking session variable: " . $_SESSION['session_login']);}?>
         temp2 = judges.trim().split(',');
         sName = "<?php echo $_SESSION['user'];?>";
         C2 = window.localStorage.getItem("creator");
-        function adder() {
-            btn = document.createElement("A");
-            btn.innerHTML = <?php isset($_SESSION['session_login']) ? $_SESSION['session_login'] : "test";?>
-            btn.className += 'list-group-item';
-            btn.href = "event.php";
-            document.getElementById('dynamic-div2').appendChild(btn);
-
-            <?php if(isset($_SESSION['session_login'])) { error_log("It's set"); ?>
-                document.getElementById('dynamic-div2').style.display = 'block';
-           <?php } ?>
-            // }
-            // bool = false;
-            // bool2 = false;
-            // for(g = 0; g < temp2.length; g++){
-            //     if (temp2[g].toLowerCase() === sName.toLowerCase()){
-            //         bool = true;
-            //     }
-            //     if(sName.toLowerCase() === C2.toLowerCase()){
-            //         bool2 = true;
-            //     }
-            // }
-            // if(bool === true && bool2 === false) {
-            //     document.getElementById('dynamic-div2').style.display = 'block';
-            // }
-            // if(bool === false && bool2 === false) {
-            //     document.getElementById('dynamic-div2').style.display = 'none';
-            // }
-            // if(bool === true && bool2 === true){
-            //     document.getElementById('dynamic-div2').style.display = 'none';
-            // }
-            // if(bool === false && bool2 === true){
-            //     document.getElementById('dynamic-div2').style.display = 'none';
-            // }
-        }
+        btn = document.createElement("A");
+        btn.innerHTML = '<?php isset($_SESSION['session_login']) ? $_SESSION['session_login'] : "";?>';
+        btn.className += 'list-group-item';
+        btn.href = "event.php";
+        document.getElementById('dynamic-div2').appendChild(btn);
+        <?php if (isset($_SESSION['session_login'])) {
+            echo "<script> document.getElementById('dynamic-div2').style.display = 'block'; </script>";
+        } ?>
     </script>
+
     <body onload="startColor()">
     <div id="wrap" class="wrapper">
         <div id="sidebar" class="sidebar" data-color="grey" data-background-color="grey">
@@ -104,7 +84,8 @@ error_log("Checking session variable: " . $_SESSION['session_login']);}?>
                             Adjudicate
                         </a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="navbar-toggler-icon icon-bar"></span>
                         <span class="navbar-toggler-icon icon-bar"></span>
@@ -113,7 +94,8 @@ error_log("Checking session variable: " . $_SESSION['session_login']);}?>
                     <div class="collapse navbar-collapse justify-content-end">
                         <form class="navbar-form">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search Events, Users, ect ...">
+                                <input type="text" value="" class="form-control"
+                                       placeholder="Search Events, Users, ect ...">
                                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                                     <i class="material-icons">search</i>
                                     <div class="ripple-container"></div>
@@ -122,10 +104,12 @@ error_log("Checking session variable: " . $_SESSION['session_login']);}?>
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
                                     <p class="d-lg-none d-md-block">
-                                    <p class="h6" style="text-transform: capitalize; display: inline-block"><?php echo $_SESSION['user'];?></p>
+                                    <p class="h6"
+                                       style="text-transform: capitalize; display: inline-block"><?php echo $_SESSION['user']; ?></p>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
@@ -144,7 +128,7 @@ error_log("Checking session variable: " . $_SESSION['session_login']);}?>
             <div class="container display-block">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey;">
                     <h1>Events to Judge:</h1>
-                    <div id="dynamic-div2" class="list-group" style="display: none">
+                    <div id="dynamic-div2" class="list-group" style="display: block">
                     </div>
                     <div>
                         <a type="button" class="btn btn-success" href="joinEvent.php">Join Events</a>

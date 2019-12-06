@@ -35,6 +35,7 @@ if (isset($_POST['sessionId-submit'])) {
                 //$results['uuid'] = $row['uuid'];
                 //$results['event_name'] = $row['event_name'];
                 //$results['num_participants'] = $row['num_participants'];
+                session_start();
                 $_SESSION['session_login'] = $row['event_name'];
                 header("location: ../view/home.php?sessionLogin=true");
                 exit();
