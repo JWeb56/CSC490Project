@@ -160,7 +160,6 @@
         document.getElementById('sheet').appendChild(submit);
 
         $(document).ready(function(){
-            $('#radioValidate').click(function(){
                 var check = true;
                 $("input:radio").each(function(){
                     var name = $(this).attr("name");
@@ -175,7 +174,6 @@
                     alert('Please select one option in each question.');
                     window.location.href = "event.php";
                 }
-            });
         });
 
         function stats(){
