@@ -29,8 +29,8 @@
         personArr.type = 'text';
         personArr.placeholder = 'Name / Group name...';
         personArr.id = 'person';
-        personArr.required = 'true';
         document.getElementById('sheet').appendChild(personArr);
+        document.getElementById("person").required = true;
 
         c = temp.length;
         k = 0;
