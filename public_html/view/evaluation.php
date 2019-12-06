@@ -168,8 +168,6 @@ foreach ($results as $result) {
 
                 </div>
 
-                <div id="dynamic-div" class="list-group" style="display: none">
-
 
                     <div class="container-fluid">
 
@@ -178,7 +176,6 @@ foreach ($results as $result) {
 
 
                     </div>
-                </div>
             </div>
     </body>
     </html>
