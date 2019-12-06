@@ -113,7 +113,7 @@ if (!isset($_SESSION['user'])) {
                         <div class="card card-profile">
                             <div class="card-avatar mt-3">
                                 <a href="#pablo">
-                                    <img class="img" src="../view/1*MccriYX-ciBniUzRKAUsAw.png" alt="">
+                                    <img class="img" src="profile_pic.png" alt="">
                                 </a>
                             </div>
                             <div class="card-body">
