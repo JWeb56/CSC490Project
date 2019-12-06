@@ -23,18 +23,18 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 else {
     // Bind the query parameters, execute, and fetch result
     mysqli_stmt_execute($stmt);
-    $resultCheck = mysqli_stmt_num_rows($stmt);
-    if ($resultCheck != 0) {
-        $result = mysqli_stmt_get_result($stmt);
-        $results = array($resultCheck);
-        // There is at least one result from the query
-        while ($row = mysqli_fetch_assoc($result)) {
-            array_push($results, $row['uuid']);
-            array_push($results, $row['event_name']);
-            array_push($results, $row['num_participants']);
-        }
+    $result = mysqli_stmt_get_result($stmt);
+    // Array to store query results
+    $results = array();
+    $i = 0;
+    // There is at least one result from the query
+    while ($row = mysqli_fetch_assoc($result)) {
+        $results[$i]['uuid'] = $row['uuid'];
+        $results[$i]['event_name'] = $row['event_name'];
+        $results[$i]['num_participants'] = $row['num_participants'];
+        $i++;
     }
-    error_log(print_r($results));
+    $_SESSION['current_sessions'] = $results;
 }
 
 

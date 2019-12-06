@@ -40,7 +40,7 @@ if (isset($_POST['session-create-submit'])) {
             exit();
         } // Everything is good to go - insert into db and redirect to home page
         else {
-            mysqli_stmt_bind_param($query, "sss", $u = generateNewUuid(), $n = $event_name, $p = $num_participants);
+            mysqli_stmt_bind_param($query, "sss", $u = generateNewUuid(), $e = $event_name, $n = $num_participants);
             mysqli_stmt_execute($query);
             header("location: ../admin/index.php?sessionCreate=success");
             exit();
