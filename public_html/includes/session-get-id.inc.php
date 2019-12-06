@@ -29,16 +29,14 @@ if (isset($_POST['sessionId-submit'])) {
         $result = mysqli_stmt_get_result($stmt);
         // Array to store query results
         $results = array();
-        $i = 0;
         // There is at least one result from the query
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row['uuid'] == $sessionCode) {
-                $results['uuid'] = $row['uuid'];
-                $results['event_name'] = $row['event_name'];
-                $results['num_participants'] = $row['num_participants'];
-                $_SESSION['current_session'] = $results;
-                $_SESSION['session_login'] = true;
-                header("location: ../view/home.php");
+                //$results['uuid'] = $row['uuid'];
+                //$results['event_name'] = $row['event_name'];
+                //$results['num_participants'] = $row['num_participants'];
+                $_SESSION['session_login'] = $row['event_name'];
+                header("location: ../view/home.php?sessionLogin=true");
                 exit();
             }
         }

@@ -3,7 +3,9 @@
 if (!isset($_SESSION['user'])) {
     header("location: ../index.php");
     exit();
-}?>
+}
+if (isset($_SESSION['session_login'])) {
+error_log("Checking session variable: " . $_SESSION['session_login']);}?>
 
     <!doctype html>
     <html lang="en">
@@ -27,12 +29,12 @@ if (!isset($_SESSION['user'])) {
         C2 = window.localStorage.getItem("creator");
         function adder() {
             btn = document.createElement("A");
-            btn.innerHTML = <?php echo $results['event_name'];?>
+            btn.innerHTML = <?php isset($_SESSION['session_login']) ? $_SESSION['session_login'] : "test";?>
             btn.className += 'list-group-item';
             btn.href = "event.php";
             document.getElementById('dynamic-div2').appendChild(btn);
 
-            <?php if(isset($_SESSION['session_login'])) {?>
+            <?php if(isset($_SESSION['session_login'])) { error_log("It's set"); ?>
                 document.getElementById('dynamic-div2').style.display = 'block';
            <?php } ?>
             // }

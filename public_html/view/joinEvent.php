@@ -71,7 +71,7 @@
                             <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">person</i>
                                 <p class="d-lg-none d-md-block">
-                                <p class="h6" style="text-transform: capitalize; display: inline-block"><?php session_start(); echo $_SESSION['user']?></p>
+                                <p class="h6" style="text-transform: capitalize; display: inline-block"><?php echo $_SESSION['user']?></p>
                                 </p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
