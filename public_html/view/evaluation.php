@@ -5,7 +5,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 require '../includes/db.inc.php';
-$sql = "select p.name as Participant, s.event_name as DaEvent, p.total_score from participant as p, session as s where p.session_id = s.uuid and judge_id = ?;";
+$sql = "select name, session_id, total_score from participant where judge_id = ?";
 $stmt = mysqli_stmt_init($connection);
 mysqli_stmt_prepare($stmt, $sql);
 error_log("Session UUID: " . $_SESSION['userUuid']);
@@ -13,8 +13,12 @@ mysqli_stmt_bind_param($stmt, "s", $j=$_SESSION['userUuid']);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $results = array();
+$session_ids = array();
 while ($row = mysqli_fetch_assoc($result)) {
     array_push($results, $row);
+}
+foreach ($results as $result) {
+    array_push($session_ids, result['session_id']);
 }
 ?>
     <!doctype html>
