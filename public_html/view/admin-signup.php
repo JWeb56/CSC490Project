@@ -1,4 +1,7 @@
-<?php require_once("header.php"); ?>
+<?php require_once("header.php");
+//if (isset($_GET['error'])) {
+//    echo "<script>alert('There was an error creating account: {$_GET['error']}');</script>";
+//}?>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
