@@ -91,12 +91,12 @@
         <div class="container">
             <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                 <h1>Join Event:</h1>
-                <form onsubmit="decoder()">
+                <form method="post" action="../includes/session-get-id.inc.php">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
                         <input id="code" type="text" class="form-control mt-1" name="code" placeholder="Enter Event Code Here">
                     </div>
-                    <a id="uCode" type="submit" class="btn btn-success" onclick="decoder()">Submit</a>
+                    <button id="uCode" type="submit" class="btn btn-success">Submit</button>
             </div>
             </form>
 
