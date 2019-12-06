@@ -59,6 +59,7 @@
             input.style.marginRight = '3%';
             input.className += 'check';
             document.getElementById(i).appendChild(input);
+            document.getElementById("c").required = true;
 
             c++;
 
@@ -76,6 +77,7 @@
             input2.style.marginRight = '3%';
             input2.className += 'check';
             document.getElementById(i).appendChild(input2);
+            document.getElementById("c").required = true;
 
             c++;
 
@@ -93,6 +95,7 @@
             input3.style.marginRight = '3%';
             input3.className += 'check';
             document.getElementById(i).appendChild(input3);
+            document.getElementById("c").required = true;
 
             c++;
 
@@ -110,6 +113,7 @@
             input4.style.marginRight = '3%';
             input4.className += 'check';
             document.getElementById(i).appendChild(input4);
+            document.getElementById("c").required = true;
 
             c++;
 
@@ -127,6 +131,7 @@
             input5.style.marginRight = '3%';
             input5.className += 'check';
             document.getElementById(i).appendChild(input5);
+            document.getElementById("c").required = true;
 
             c++;
 
@@ -143,6 +148,7 @@
             input6.name = k;
             input6.className += 'check';
             document.getElementById(i).appendChild(input6);
+            document.getElementById("c").required = true;
 
             c++;
             k++;
