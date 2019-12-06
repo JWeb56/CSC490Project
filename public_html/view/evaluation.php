@@ -2,7 +2,21 @@
 if (!isset($_SESSION['user'])) {
     header("location: ../index.php");
     exit();
-}?>
+}
+
+require '../includes/db.inc.php';
+$sql = "select name, session_id, total_score from participant where judge_id = ?";
+$stmt = mysqli_stmt_init($connection);
+mysqli_stmt_prepare($stmt, $sql);
+error_log("Session UUID: " . $_SESSION['userUuid']);
+mysqli_stmt_bind_param($stmt, "s", $j=$_SESSION['userUuid']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$results = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    array_push($results, $row);
+}
+?>
     <!doctype html>
     <html lang="en">
     <head>
@@ -16,22 +30,22 @@ if (!isset($_SESSION['user'])) {
         </style>
         <title>Easy Adjudicate Winners Page</title>
     </head>
-<script>
-const person = window.localStorage.getItem("per")
-const total = window.localStorage.getItem("tot")
+    <script>
+        const person = window.localStorage.getItem("per")
+        const total = window.localStorage.getItem("tot")
 
-function adder() {
-    btn = document.createElement("A");
-    btn.innerHTML = person;
-    btn.className += 'list-group-item';
-    btn.href = "score.php";
-    document.getElementById('dynamic-div').appendChild(btn);
+        function adder() {
+            btn = document.createElement("A");
+            btn.innerHTML = person;
+            btn.className += 'list-group-item';
+            btn.href = "score.php";
+            document.getElementById('dynamic-div').appendChild(btn);
 
-    if(person !== null) {
-        document.getElementById('dynamic-div').style.display = 'block';
-    }
-}
-</script>
+            if(person !== null) {
+                document.getElementById('dynamic-div').style.display = 'block';
+            }
+        }
+    </script>
     <body onload="startColor()">
     <div class="wrapper">
         <div id="sidebar" class="sidebar" data-color="purple" data-background-color="grey">
@@ -44,9 +58,9 @@ function adder() {
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a id="l2" class="nav-link" href="Profile.php">
-                            <i id="icon2" class="material-icons">person</i>
-                            <p id="p2">Profile</p>
+                        <a id="l2" class="nav-link" href="judge.php">
+                            <i id="icon2" class="material-icons">assignment</i>
+                            <p id="p2">Judge Events</p>
                         </a>
                     </li>
                     <li class="nav-item active ">
@@ -115,7 +129,50 @@ function adder() {
             <div class="container">
                 <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                     <h1>Evaluations: </h1>
-                    <div id="dynamic-div" class="list-group" style="display: none">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+
+
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Participant</th>
+                                        <th>Session</th>
+                                        <th>Total</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php foreach ($results as $entry) { ?> <tr>
+                                        <td> <?php echo $entry['name'] ?> </td>
+                                        <td> <?php echo $entry['session_id'] ?> </td>
+                                        <td> <?php echo $entry['total_score'] ?> </td>
+
+                                    </tr> <?php } ?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="dynamic-div" class="list-group" style="display: none">
+
+
+                    <div class="container-fluid">
+
+
+
+
+
                     </div>
                 </div>
             </div>
