@@ -1,4 +1,10 @@
-<?php require_once("header.php"); ?>
+<?php require_once("header.php");
+$isError = $_GET['error'] == "alreadyJudged";
+
+if ($isError) {
+    echo "<script>alert('You have already entered a score for this participant!.');</script>";
+}?>
+
 
 <!doctype html>
 <html lang="en">
@@ -177,7 +183,8 @@
 
                 if(check){
                     stats();
-                }else{
+                }
+                else{
                     alert('Please select one option in each question.');
                     window.location.href = "event.php";
                 }

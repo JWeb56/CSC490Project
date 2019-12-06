@@ -35,7 +35,14 @@ $name = $person;
 $session_id = $_SESSION['session_uuid'];
 $judge_id = $_SESSION['userUuid']; // This is already set as a session variable
 $score = $total; // Placeholder -- Micah you need to fill this in
-
+foreach ($judges as $key => $value) {
+    error_log("Testing key: " . $key);
+    error_log("Testing value: " . $value);
+    if ($key == $name && $value = $judge_id) {
+        header("location: ../view/event.php?error=alreadyJudged");
+        exit();
+    }
+}
 require('db.inc.php');
 
 $sql = "INSERT INTO participant (uuid, name, session_id, judge_id, total_score) values(?, ?, ?, ?, ?)";
