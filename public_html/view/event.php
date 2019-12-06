@@ -25,10 +25,6 @@
     function splitter(){
          temp = static_cat.trim().split(',');
 
-        form = document.createElement("FORM");
-        form.id = 'sheet';
-        document.getElementById('jumbotron').appendChild(form);
-
         personArr = document.createElement("INPUT");
         personArr.type = 'text';
         personArr.placeholder = 'Name / Group name...';
@@ -259,6 +255,10 @@
         <div class="container">
             <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                 <h1><?php echo $_SESSION['session_login'];?></h1>
+            </div>
+            <div id="dynamic-div2" class="list-group" style="display: block">
+                <form id="sheet" method="post" action="../includes/judge-participant.inc.php">
+                </form>
             </div>
         </div>
 </body>
