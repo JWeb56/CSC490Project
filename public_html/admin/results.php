@@ -4,8 +4,7 @@ include('includes/header.php');
 include('includes/navbar.php');
 require '../includes/db.inc.php';
 $session_to_view = $_SESSION['ended_session'];
-error_log("Testing session variable is set: " . $session_to_view);
-$sql = "select name, session_id, total_score from participant where session_id=?";
+$sql = "select name, avg(total_score) as total from participant where session_id=? GROUP BY name";
 $stmt = mysqli_stmt_init($connection);
 mysqli_stmt_prepare($stmt, $sql);
 // Bind the query parameters, execute, and fetch result
@@ -47,8 +46,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                         <?php foreach ($results as $entry) { ?> <tr>
                             <td> <?php echo $entry['name'] ?> </td>
-                            <td> <?php echo $entry['session_id'] ?> </td>
-                            <td> <?php echo $entry['total_score'] ?> </td>
+                            <td> <?php echo $session_to_view ?> </td>
+                            <td> <?php echo intval($entry['total']) ?> </td>
 
                         </tr> <?php } ?>
 

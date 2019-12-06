@@ -18,7 +18,7 @@ $_SESSION['adminCount'] = $count;
 mysqli_close($connection);
 
 require '../includes/db.inc.php';
-$sql = "SELECT * FROM session";
+$sql = "SELECT * FROM session where active = 1";
 $stmt = mysqli_stmt_init($connection);
 mysqli_stmt_prepare($stmt, $sql);
 mysqli_stmt_execute($stmt);

@@ -7,6 +7,7 @@ if (isset($_POST['endSession-submit'])) {
 
     // Get the Session UUID to be ended
     $sessionId = $_POST['delete-id'];
+    //$sessionName = $_POST['delete-name'];
     // Nothing was entered into login form
     if (empty($sessionId)) {
         header("location: ../admin/session.php?error=noSessionSelected");
@@ -29,6 +30,7 @@ if (isset($_POST['endSession-submit'])) {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             $_SESSION['ended_session'] = $sessionId;
+            //$_SESSION['ended_session_hame'] = $sessionName;
             header("location: ../admin/results.php?endSession=success");
             exit();
         }
