@@ -6,10 +6,10 @@ session_start();
 require('db.inc.php');
 
 // Generate random UUID with prefix "CSC490"
-function generateNewUuid() {
+function generateNewUuid()
+{
     return uniqid("CSC490");
 }
-
 
 
 // Create the 'participant' table if it doesn't already exist
@@ -23,6 +23,11 @@ mysqli_query($connection, "
                 total_score INT(11)
             );
         ");
+
+// Get a list of current participant names and their judges
+require 'check-participants.inc.php';
+
+mysqli_stmt_close($stmt);
 $total = $_POST['total'];
 $person = $_POST['name'];
 // Micah you will pass your total score here, and I guess we'll talk Thursday about how to set session_id for each judge
@@ -31,6 +36,7 @@ $session_id = $_SESSION['session_uuid'];
 $judge_id = $_SESSION['userUuid']; // This is already set as a session variable
 $score = $total; // Placeholder -- Micah you need to fill this in
 
+require('db.inc.php');
 
 $sql = "INSERT INTO participant (uuid, name, session_id, judge_id, total_score) values(?, ?, ?, ?, ?)";
 $query = mysqli_stmt_init($connection);
