@@ -20,10 +20,10 @@ include('includes/navbar.php');
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Poop on my face</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Enter Values for New Session</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-                                <h4>Total farts</h4>
+                                <h4></h4>
                                 <form action="../includes/session-create.inc.php" method="post">
                                     <div class="input-group">
                                         <input type="text" class="form-control mt-1" name="event_name" placeholder="Name of Event">

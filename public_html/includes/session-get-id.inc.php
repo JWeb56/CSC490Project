@@ -11,11 +11,12 @@ if (isset($_POST['sessionId-submit'])) {
 //                id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //                uuid VARCHAR(32),
 //                event_name VARCHAR(32),
-//                num_participants INT(11)
+//                num_participants INT(11),
+//                active INT(11)
 //            );
 //        ");
 
-    $sql = "SELECT * FROM session";
+    $sql = "SELECT * FROM session WHERE active = 1";
 
     $stmt = mysqli_stmt_init($connection);
 // Prepare the sql query

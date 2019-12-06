@@ -17,7 +17,8 @@ if (isset($_POST['session-create-submit'])) {
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
                 uuid VARCHAR(32), 
                 event_name VARCHAR(32),  
-                num_participants INT(11)
+                num_participants INT(11),
+                active INT(11)
             );
         ");
 
@@ -32,7 +33,7 @@ if (isset($_POST['session-create-submit'])) {
     } // Invalid email entered for judge
      // Proper values entered
     else {
-        $sql = "INSERT INTO session (uuid, event_name, num_participants) values(?, ?, ?)";
+        $sql = "INSERT INTO session (uuid, event_name, num_participants, active) values(?, ?, ?, ?)";
         $query = mysqli_stmt_init($connection);
         // Error with preparing the statement
         if (!mysqli_stmt_prepare($query, $sql)) {
@@ -40,7 +41,7 @@ if (isset($_POST['session-create-submit'])) {
             exit();
         } // Everything is good to go - insert into db and redirect to home page
         else {
-            mysqli_stmt_bind_param($query, "sss", $u = generateNewUuid(), $e = $event_name, $n = $num_participants);
+            mysqli_stmt_bind_param($query, "sssi", $u = generateNewUuid(), $e = $event_name, $n = $num_participants, $active = 1);
             mysqli_stmt_execute($query);
             header("location: ../admin/index.php?sessionCreate=success");
             exit();

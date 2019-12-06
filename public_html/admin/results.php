@@ -1,7 +1,7 @@
 <?php
 include('includes/header.php');
 include('includes/navbar.php');
-require '../includes/db.inc.php.template';
+require '../includes/db.inc.php';
 $sql = "select name, session_id, AVG(total_score) as total from participant ORDER BY session_id";
 $stmt = mysqli_stmt_init($connection);
 mysqli_stmt_prepare($stmt, $sql);
