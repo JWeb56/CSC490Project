@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Make connection to database
 require('db.inc.php');
 
@@ -21,8 +23,8 @@ mysqli_query($connection, "
                 total_score INT(11)
             );
         ");
-$total = intval("<script> window.localStorage.getItem('tot');</script>");
-$person = "<script>window.localStorage.getItem('per');";
+$total = $_POST['total'];
+$person = $_POST['name'];
 // Micah you will pass your total score here, and I guess we'll talk Thursday about how to set session_id for each judge
 $name = $person;
 $session_id = $_SESSION['session_uuid'];
@@ -40,5 +42,6 @@ if (!mysqli_stmt_prepare($query, $sql)) {
 else {
     mysqli_stmt_bind_param($query, "ssssi", $u = generateNewUuid(), $n = $name, $s = $session_id, $j = $judge_id, $s = $score);
     mysqli_stmt_execute($query);
+    header("location: ../view/home.php?judge=success");
     exit();
 }

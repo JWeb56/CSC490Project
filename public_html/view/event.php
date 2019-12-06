@@ -149,7 +149,7 @@
         submit.id = 'submit';
         submit.name = 'judgeParticipants-submit';
         submit.addEventListener("click", stats);
-        document.getElementById('end').appendChild(submit);
+        document.getElementById('sheet').appendChild(submit);
 
         function stats(){
             person = document.getElementById('person').value;
@@ -165,10 +165,11 @@
                 f_total= total / (c - (temp.length * 2));
                f_total = Math.ceil(f_total * 100);
             }
-
+            <?php ?>
             window.localStorage.setItem('per', person);
             window.localStorage.setItem('tot', f_total);
-
+            document.getElementById("name").value = person;
+            document.getElementById("total").value = f_total;
             <?php //require ('../includes/judge-participant.inc.php'); ?>
         }
     }
@@ -257,7 +258,8 @@
             <div id="jumbotron" class="jumbotron text-center" style="background-color:grey; box-shadow: 10px 10px 5px black;">
                 <h1><?php echo $_SESSION['session_login'];?></h1>
                 <form id="sheet" method="post" action="../includes/judge-participant.inc.php">
-
+                    <input id="name" type="hidden" class="form-control mt-1" name="name" >
+                    <input id="total" type="hidden" class="form-control mt-1" name="total" >
                 </form>
             </div>
         </div>
